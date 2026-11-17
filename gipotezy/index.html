@@ -279,13 +279,46 @@ footer{background:var(--ink);color:rgba(241,238,233,.5);font-size:13px;padding-b
 .mm-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13.5px;color:var(--muted)}
 .mm-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:0}
 .mm-legend .tagx{border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-size:12.5px;color:var(--ink2)}
+
+/* seo */
+.seo{background:var(--paper)}
+.s3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px}
+.s3>div{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:24px}
+.s3 .n{font:italic 400 34px/1 var(--serif);color:var(--bronze)}
+.s3 h3{font:500 19px/1.3 var(--sans);margin:12px 0 8px}
+.s3 p{margin:0;font-size:15px;color:var(--muted)}
+.now{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-top:14px}
+.now div{background:var(--ink);color:#F1EEE9;padding:20px}
+.now b{display:block;font:400 34px/1 var(--serif);color:var(--brass);margin-bottom:8px}
+.now span{font-size:14px;color:rgba(241,238,233,.7)}
+.mk{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:44px}
+.mk>div{border-top:3px solid var(--line);padding-top:14px}
+.mk .go{border-color:var(--green)} .mk .wait{border-color:var(--amber)} .mk .no{border-color:var(--red)}
+.mk h4{font:500 18px/1.2 var(--sans);margin:0 0 4px}
+.mk .v{font:600 12px/1 var(--sans);letter-spacing:.08em;text-transform:uppercase}
+.mk .go .v{color:var(--green)} .mk .wait .v{color:var(--amber)} .mk .no .v{color:var(--red)}
+.mk p{margin:8px 0 0;font-size:14.5px;color:var(--ink2)}
+.kw{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.kw span{font-size:12.5px;padding:4px 10px;border-radius:999px;background:var(--sand);color:var(--ink2)}
+.kw span i{font-style:normal;color:var(--muted);margin-left:4px}
+.road{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin-top:44px}
+.road div{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:16px}
+.road .w{font:600 12px/1 var(--sans);letter-spacing:.08em;color:var(--bronze);text-transform:uppercase}
+.road h5{margin:8px 0 6px;font:500 15.5px/1.25 var(--sans)}
+.road p{margin:0;font-size:13.5px;color:var(--muted)}
+.gap{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.gap div{background:var(--sand);border-radius:14px;padding:16px 18px;font-size:15px;color:var(--ink2)}
+.gap b{display:block;font:400 24px/1.1 var(--serif);color:var(--bronze);margin-bottom:6px}
+@media(max-width:1000px){.road{grid-template-columns:repeat(3,1fr)}.mk,.now{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.s3,.gap{grid-template-columns:1fr}}
+@media(max-width:520px){.road,.mk,.now{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 
 <nav class="nav"><div class="wrap">
   <b>D&amp;B <span>Партнёры</span></b>
-  <a class="first" href="#offer">Оффер</a><a href="#map">Карта</a><a href="#start">Старт</a><a href="#weeks">План</a><a href="#law">Законы</a><a href="#backlog">Партнёры</a><a href="#b2c">Частники</a><a href="#all">Все гипотезы</a><a href="#need">Что нужно</a>
+  <a class="first" href="#offer">Оффер</a><a href="#map">Карта</a><a href="#start">Старт</a><a href="#weeks">План</a><a href="#law">Законы</a><a href="#backlog">Партнёры</a><a href="#seo">Поиск и ИИ</a><a href="#b2c">Частники</a><a href="#all">Все гипотезы</a><a href="#need">Что нужно</a>
 </div></nav>
 
 <header class="hero">
@@ -315,48 +348,16 @@ footer{background:var(--ink);color:rgba(241,238,233,.5);font-size:13px;padding-b
     </div>
     <div class="where io"><span>Холодные письма</span><span>LinkedIn</span><span>Instagram</span><span>Встречи представителя</span><span>Женское бизнес-сообщество</span></div>
 
-    <div class="io" style="margin-top:72px"><div class="eyebrow">Как это выглядит</div>
-    <h2 style="max-width:24ch">Фото террасы <em>→ терраса с перголой</em></h2>
-    <p class="lead">Пример на фото с сайта dbscom.info. Потяните ползунок, чтобы сравнить «до» и «после». Ниже — три готовых промпта: по ним визуализации делаются в Google AI Studio (модель Gemini для картинок) за пару минут.</p></div>
-    <div class="viz io">
-      <div class="ba" id="ba" style="--x:50%">
-        <img class="after" src="img/offer/sait-terrasa.jpg" alt="Терраса с биоклиматической перголой WIN CLIMATIC, вид на виноградники">
-        <img class="before" src="img/offer/do.jpg" alt="Та же терраса без перголы" onerror="document.getElementById('ba').classList.add('nobefore')">
+    <div id="vizWrap" hidden>
+      <div class="io in" style="margin-top:72px"><div class="eyebrow">Как это выглядит</div>
+      <h2 style="max-width:24ch">Фото с телефона <em>→ терраса с перголой</em></h2>
+      <p class="lead">Обычное фото террасы, как его присылает партнёр или ресторан, и тот же кадр с перголой WIN CLIMATIC. Потяните ползунок.</p></div>
+      <div class="ba" id="ba" style="--x:50%;margin-top:36px">
+        <img class="after" src="img/offer/posle.jpg" alt="Та же терраса с биоклиматической перголой">
+        <img class="before" src="img/offer/do.jpg" alt="Фото террасы на телефон, без перголы">
         <div class="bar"></div>
         <span class="lab l">До</span><span class="lab r">После</span>
-        <span class="soon">Пример «до» скоро появится</span>
         <input type="range" min="0" max="100" value="50" aria-label="Сравнить до и после">
-      </div>
-      <div class="vside">
-        <div class="vcard" id="vEve">
-          <img src="img/offer/vecher.jpg" alt="Вечерний вариант: свет в ламелях и ZIP-шторы" onerror="this.src='img/offer/referens-pergola.jpg';this.nextElementSibling.textContent='Вечером: свет и ZIP-шторы'">
-          <span class="lab">Вариант 3 · вечер, свет, ZIP</span>
-        </div>
-        <div class="vnote"><b>2–3 варианта на одно фото</b>Цвет каркаса, ламели открыты или закрыты, боковые ZIP-шторы, вечерняя подсветка. Партнёр показывает клиенту выбор, а не одну картинку.</div>
-      </div>
-    </div>
-
-    <div class="prompts io">
-      <div class="pr">
-        <div class="n">1</div>
-        <h4>«До»: убрать перголу с готового фото</h4>
-        <div class="up">Загрузить: <code>sait-terrasa.jpg</code> (фото с сайта). Результат сохранить как <code>do.jpg</code> — получится точная пара «до/после».</div>
-<pre id="p1">Edit this photo. Remove the entire pergola: the black aluminium posts, the frame and the louvered roof above the terrace. Keep everything else exactly the same: camera angle, stone terrace floor, glass railing, sofas, loungers, coffee table, plant pot, the house facade with the sliding glass doors and the lit interior, the vineyards, the hills and the sunset sky. Where the roof was, show open evening sky, and let the warm low sunset light fall directly on the terrace floor and furniture with natural long shadows. Photorealistic, same framing, resolution and colour grading as the original. Do not add any new objects, people, text, logos or watermarks. Do not change the furniture, the view, the railing or the architecture.</pre>
-        <button data-p="p1">Скопировать промпт</button>
-      </div>
-      <div class="pr">
-        <div class="n">2</div>
-        <h4>«После»: поставить перголу на фото клиента</h4>
-        <div class="up">Загрузить 2 картинки: <b>первой</b> — фото террасы партнёра или ресторана (для теста — <code>do.jpg</code>), <b>второй</b> — <code>referens-pergola.jpg</code> как образец изделия.</div>
-<pre id="p2">Image 1 is a real photo of a client's terrace. Image 2 is a reference of our product: a WIN CLIMATIC S500 bioclimatic louvered aluminium pergola. Add one freestanding pergola of exactly this type to the terrace in image 1: slim square anthracite (RAL 7016) aluminium posts, a flat rectangular frame about 2.6 m high, and a roof of parallel aluminium louvers tilted open at about 45 degrees so daylight comes through in stripes. Size it to cover the main seating area, with the posts standing on the terrace floor at the corners, aligned with the floor lines and the house wall. Respect real perspective and scale (a door is about 2.1 m high). Match the light, sun direction, shadows and colours of image 1: the louvers cast striped shadows on the floor and furniture. Keep everything else in image 1 unchanged: camera angle, building, furniture, plants, view. Photorealistic architectural photo. No people, no text, no logos, no watermark. Do not change the shape of the terrace, do not add walls, curtains, extra furniture or a second pergola.</pre>
-        <button data-p="p2">Скопировать промпт</button>
-      </div>
-      <div class="pr">
-        <div class="n">3</div>
-        <h4>Вариант: вечер, подсветка и ZIP-шторы</h4>
-        <div class="up">Загрузить: результат промпта 2 (или <code>sait-terrasa.jpg</code>). Сохранить как <code>vecher.jpg</code>.</div>
-<pre id="p3">Keep this exact image: the same camera angle, terrace, pergola size and position, furniture and view. Change only the time of day and the pergola settings. Make it the blue hour just after sunset: deep blue sky with a faint warm glow on the horizon. Close the pergola louvers into a flat roof. Turn on warm white (3000 K) LED strips that glow along the inner edges of the frame and between the louvers, softly lighting the terrace floor and the furniture. Lower dark grey fabric ZIP screens on the one side of the pergola that faces away from the house, about two thirds down, with the fabric slightly see-through. Warm lights are on inside the house. Photorealistic evening architectural photo, realistic light falloff and reflections on the floor. No people, no text, no logos, no watermark. Do not move or resize the pergola, do not change the furniture, the building or the view.</pre>
-        <button data-p="p3">Скопировать промпт</button>
       </div>
     </div>
   </div>
@@ -551,7 +552,6 @@ If pergolas come up in a project this season or next, just reply with the client
       <div class="cty rd"><div class="f">🇪🇸 🇮🇹</div><h4>Испания, Италия</h4><p>Закон прямо защищает и компании (LSSI ст. 21; Codice privacy ст. 130). Регуляторы штрафовали за письма юрлицам. Сюда идём через выставки, рекламу и представителей.</p><span class="s">НЕ ПОЧТОЙ</span></div>
       <div class="cty rd"><div class="f">🇦🇹 🇩🇪 🇵🇱</div><h4>Австрия, Германия, Польша</h4><p>Согласие нужно от всех, компаний тоже: TKG § 174, UWG § 7, в Польше с 10.11.2024 — PKE ст. 398. В Польше запрет касается ещё звонков и мессенджеров. Здесь работают представители, встречи, реклама, выставки.</p><span class="s">НЕ ПОЧТОЙ</span></div>
     </div>
-    <div class="io" style="margin-top:22px;padding:18px 20px;border-radius:16px;border:1px solid rgba(214,165,70,.45);background:rgba(214,165,70,.08);font-size:15px;color:rgba(241,238,233,.85)"><b style="color:#F2CB7E">Важная оговорка про Вену.</b> Мы отправляем письма из Австрии. Австрийский закон считает нарушение совершённым там, где действовал отправитель (VStG § 2), а запрет TKG § 174 защищает любого получателя. Поэтому австрийский надзор теоретически может оштрафовать венскую фирму и за письма в Хорватию, хотя хорватский закон их разрешает. Таких решений проверка не нашла, практический риск небольшой. Но до массовой рассылки нужен час консультации австрийского юриста. Как вариант — отправлять письма от хорватской фирмы, которая заработает в январе 2027.</div>
     <div class="gdpr io">
       <div>Предпочтительно общие адреса (info@, ured@). Помогает с GDPR, но в странах «не почтой» общий адрес не спасает</div>
       <div>В первом письме: кто мы, откуда адрес, ссылка на политику конфиденциальности и отдельной строкой — право возразить</div>
@@ -591,9 +591,56 @@ If pergolas come up in a project this season or next, just reply with the client
       <div><b>LinkedIn</b><p>Оффер с визуализацией вместо «давайте созвонимся». Claude читает профиль и посты человека перед сообщением. Раз в неделю пост «до/после», чтобы профиль выглядел живым.</p></div>
       <div><b>Instagram</b><p>Витрина для партнёров: на неё ведут письма и сообщения. Визуализации на реальных фото, фото поставщика, рилсы «фото террасы → пергола за 10 секунд».</p></div>
       <div><b>Представители</b><p>Набор для встречи: одностраничник под партнёра, визуализация на iPad, после встречи — письмо-резюме и регистрация проекта в тот же день.</p></div>
-      <div><b>Сайт, Google и ИИ</b><p>Страницы под сегменты и города («пергола для ресторанов в Сплите»), страница для партнёров с ответами на вопросы, каталоги, карточки Google в Вене и Хорватии. Эффект — через 3–6 месяцев.</p></div>
+      <div><b>Сайт, Google и ИИ</b><p>Не отдельный блог, а многоязычный dbscom.info из 25–35 страниц: партнёрский раздел, Вена, Хорватия. Подробно — <a href="#seo" style="color:var(--bronze)">в разделе «Поиск и ИИ»</a>.</p></div>
       <div><b>Женское сообщество</b><p>Не баннер, а закрытое предложение участницам: бесплатная визуализация их террасы и отдельная ссылка в 3D-планер, чтобы считать заявки.</p></div>
     </div>
+  </div>
+</section>
+
+<!-- SEO / GEO -->
+<section class="seo" id="seo">
+  <div class="wrap">
+    <div class="io"><div class="eyebrow">Поиск Google и ответы ИИ</div>
+    <h2>Отдельный сайт не нужен — <em>нужен полноценный dbscom.info</em></h2>
+    <p class="lead">Мы проверили выдачу Google в Австрии, Хорватии, Испании и ещё шести странах, а также 20 ответов ChatGPT и режима ИИ в Google. Вывод: контентный сайт «про перголы» не окупится. А превратить dbscom.info в многоязычный сайт из 25–35 страниц стоит.</p></div>
+
+    <div class="now io">
+      <div><b>1</b><span>страница у dbscom.info для Google: одна, на немецком. Английская и русская версии для поиска не существуют</span></div>
+      <div><b>0 из 20</b><span>ответов ИИ про перголы упоминают D&amp;B</span></div>
+      <div><b>3 фирмы</b><span>с которыми ChatGPT путает D&amp;B Solutions Wien</span></div>
+      <div><b>10–15</b><span>мелких фирм в выдаче Вены — крупных игроков нет</span></div>
+    </div>
+
+    <div class="s3 io">
+      <div><div class="n">01</div><h3>Страницы для партнёров на EN, HR, ES, DE</h3><p>Сюда ведут письма, LinkedIn и встречи представителя. Партнёр открывает сайт и видит программу: скидку, фиксацию клиента, 3D-планер, визуализацию за 24 часа. Эти же страницы цитирует ИИ, когда его спрашивают о поставщиках.</p></div>
+      <div><div class="n">02</div><h3>Поиск по Вене</h3><p>Единственный рынок, где есть спрос, слабая конкуренция в выдаче, шоурум и своя бригада. Страницы «Lamellendach Wien», «цена», «разрешение в Вене», «для ресторанов», плюс карточка Google с отзывами.</p></div>
+      <div><div class="n">03</div><h3>Чтобы ИИ знал компанию</h3><p>Страница «О компании» с юрлицом и адресом, одинаковые данные во всех каталогах, разметка для поисковиков, файл llms.txt, каталоги мастеров. ИИ по перголам цитирует именно их, а не Reddit или YouTube.</p></div>
+    </div>
+
+    <div class="gap io">
+      <div><b>Окно возможностей</b>Хорватской версии сайта нет ни у одного производителя. У WIN CLIMATIC нет дилеров в Хорватии, Испании и Австрии — бренд на этих языках никто не занял.</div>
+      <div><b>Почему не отдельный сайт</b>Новый домен выходит на трафик 1–2 года. Широкие запросы держат Leroy Merlin, Habitissimo и производители. Массовые страницы «пергола + город» Google с 2024 года считает нарушением.</div>
+    </div>
+
+    <div class="mk io">
+      <div class="go"><span class="v">Первым · поиск</span><h4>Вена</h4><p>Все запросы «… Wien» вместе — 1–2,5 тыс. в месяц <span class="est">оценка</span>. Публикуем до февраля, к сезону марта–мая.</p>
+        <div class="kw"><span>Pergola Wien<i>300–800</i></span><span>Lamellendach Wien<i>100–300</i></span><span>Lamellendach Kosten<i>200–500</i></span><span>Gastgarten Überdachung<i>50–150</i></span></div></div>
+      <div class="go"><span class="v">Первым · партнёры и ИИ</span><h4>Хорватия</h4><p>Поиска мало, зато конкурентов почти нет. Страницы закрывают сделки из писем и визитов к ресторанам. Плюс немецкие страницы для австрийцев с виллами в Хорватии.</p>
+        <div class="kw"><span>bioklimatska pergola<i>100–200</i></span><span>pergola cijena<i>70–110</i></span><span>pergola za restoran<i>20–40</i></span><span>Lamellendach Kroatien</span></div></div>
+      <div class="wait"><span class="v">С февраля–марта 2027</span><h4>Испания</h4><p>Главный запрос огромный (8–12 тыс.), но занят. Берём ниши: страница для установщиков, разрешения для террас ресторанов, английские страницы для иностранцев на Балеарах и Канарах.</p>
+        <div class="kw"><span>distribuidor pérgolas<i>10–40</i></span><span>pérgola hostelería<i>50–150</i></span><span>bioclimatic pergola Mallorca<i>20–60</i></span></div></div>
+      <div class="no"><span class="v">Не сейчас</span><h4>Германия, Франция, Италия</h4><p>Выдача очень плотная, монтажа нет. Польша — не рынок сбыта, а аргумент «польское производство».</p></div>
+    </div>
+
+    <div class="road io">
+      <div><div class="w">Недели 1–2</div><h5>Техника</h5><p>Отдельные адреса /de/ /en/ /hr/ /es/, sitemap, разметка, llms.txt, Search Console</p></div>
+      <div><div class="w">Недели 2–3</div><h5>Партнёрский раздел</h5><p>EN и HR, потом DE: программа, для архитекторов, для ресторанов</p></div>
+      <div><div class="w">Недели 3–4</div><h5>Каталоги</h5><p>Europages, emajstor, trebam, herold.at, WKO; запрос производителю на фото и список дилеров</p></div>
+      <div><div class="w">Недели 4–6</div><h5>Вена</h5><p>Объекты, честная таблица цен, разрешения, гастрономия, плюсы и минусы</p></div>
+      <div><div class="w">Недели 6–8</div><h5>Хорватия</h5><p>Пергола на хорватском, цены, разрешения, рестораны, виллы</p></div>
+      <div><div class="w">Недели 8–13</div><h5>Замер и Испания</h5><p>Повторяем 20 вопросов в ИИ, смотрим запросы, первая волна Испании</p></div>
+    </div>
+    <p class="io" style="margin-top:22px;color:var(--muted);font-size:15px"><b style="color:var(--ink)">Стоимость за 90 дней: 600–1 500 €</b> <span class="est">оценка</span> — вычитка носителями HR и ES, фото, каталоги, генерации. Плюс время на тексты и доработку сайта. Цель к 15.02.2027: D&amp;B есть хотя бы в 3 из 20 ответов ИИ, на «D&amp;B Solutions Wien» ИИ отвечает правильно, 30+ отзывов в Google. Частотность запросов — оценка через Google Trends: платные SEO-сервисы не подключали.</p>
   </div>
 </section>
 
@@ -774,7 +821,9 @@ document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',
 
 /* before / after slider */
 (function(){
-  const ba=document.getElementById('ba');if(!ba)return;
+  const w=document.getElementById('vizWrap'),ba=document.getElementById('ba');if(!ba)return;
+  const imgs=[...ba.querySelectorAll('img')];let n=0;
+  imgs.forEach(i=>{const ok=()=>{if(++n===imgs.length)w.hidden=false};if(i.complete&&i.naturalWidth)ok();else i.addEventListener('load',ok)});
   ba.querySelector('input').addEventListener('input',e=>ba.style.setProperty('--x',e.target.value+'%'));
 })();
 
