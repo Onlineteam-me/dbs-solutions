@@ -313,6 +313,16 @@ footer{background:var(--ink);color:rgba(241,238,233,.5);font-size:13px;padding-b
 @media(max-width:700px){.s3,.gap{grid-template-columns:1fr}}
 @media(max-width:520px){.road,.mk,.now{grid-template-columns:1fr}}
 
+/* readable v1: без полос, один читаемый шрифт, шире контент */
+:root{--serif:"Outfit","Helvetica Neue",Arial,sans-serif;--max:1400px}
+.hero::after{display:none}
+h1,h2{font-weight:600!important;letter-spacing:-.02em!important}
+.hero h1{font-size:clamp(40px,6vw,80px)!important;line-height:1.02!important;max-width:18ch}
+h2{font-size:clamp(30px,4vw,52px)!important;line-height:1.08!important;max-width:26ch}
+h1 em,h2 em,.sx-sun h3 em{font-style:normal}
+.three .n,.bl .id,td:first-child,.fs .k,.s3 .n,.sx-a .n,.pr .n,.kv b,.pipe div b,.wk h4,.imp b,.fb b,.verdict h3,.card-main h3,.sx-site .big,.sx-stats b,.sx-row .sc,.now b,.gap b,.col .cnt,.vnote b,.sx-detail h4,.sx-sun h3{font-style:normal!important;font-weight:600!important;letter-spacing:-.01em}
+body{font-size:17.5px;line-height:1.6}
+.lead{color:#4E4840}
 /* seo v2 */
 .seo{background:var(--paper)}
 .sx-h{margin-top:72px}
@@ -950,7 +960,8 @@ document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',
     const c=document.createElementNS(NS,'circle');Object.entries({cx,cy,r:0,fill:C[k],opacity:.9}).forEach(([a,b])=>c.setAttribute(a,b));g.appendChild(c);
     const t=document.createElementNS(NS,'text');Object.entries({x:cx,y:cy+4,'text-anchor':'middle','font-size':12,'font-weight':700,fill:'#fff'}).forEach(([a,b])=>t.setAttribute(a,b));t.textContent=id;g.appendChild(t);
     const lbl=document.createElementNS(NS,'text');Object.entries({x:cx+24,y:cy+4,'font-size':13.5,fill:'#2B2A27'}).forEach(([a,b])=>lbl.setAttribute(a,b));lbl.textContent=name;g.appendChild(lbl);
-    if(cx>W-200||id==='S3'){lbl.setAttribute('x',cx-24);lbl.setAttribute('text-anchor','end')}
+    if(cx>W-200){lbl.setAttribute('x',cx-24);lbl.setAttribute('text-anchor','end')}
+    if(id==='S3'){lbl.setAttribute('x',cx);lbl.setAttribute('y',cy+38);lbl.setAttribute('text-anchor','middle')}
     const tt=document.createElementNS(NS,'title');tt.textContent=`${id} · ${name}: тест ≈ ${v>=1000?v.toLocaleString('ru')+' €':v+' $'}, первая заявка ≈ ${w} нед. (оценка)`;g.appendChild(tt);
     setTimeout(()=>{let r=0;const grow=()=>{r+=1.5;c.setAttribute('r',Math.min(r,18));if(r<18)requestAnimationFrame(grow)};grow()},300+i*90);
     g.addEventListener('mouseenter',()=>c.setAttribute('r',22));g.addEventListener('mouseleave',()=>c.setAttribute('r',18));
