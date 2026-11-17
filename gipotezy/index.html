@@ -313,6 +313,35 @@ footer{background:var(--ink);color:rgba(241,238,233,.5);font-size:13px;padding-b
 @media(max-width:700px){.s3,.gap{grid-template-columns:1fr}}
 @media(max-width:520px){.road,.mk,.now{grid-template-columns:1fr}}
 
+/* final hypotheses */
+.fh{background:var(--paper)}
+.fh-groups{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:44px;align-items:start}
+.fh-g{display:grid;gap:12px}
+.fh-gt{display:flex;align-items:center;gap:10px;font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);padding-bottom:10px;border-bottom:2px solid var(--sand)}
+.fh-gt i{font-style:normal;font-size:20px;letter-spacing:0}
+.fh-c{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:20px 22px;display:flex;flex-direction:column;gap:10px}
+.fh-top{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.fh-n{font:600 30px/1 var(--sans);color:var(--bronze)}
+.fh-t{font:600 11.5px/1 var(--sans);letter-spacing:.06em;text-transform:uppercase;padding:6px 10px;border-radius:999px;white-space:nowrap}
+.fh-t.now{background:rgba(63,125,88,.14);color:var(--green)}
+.fh-t.t2{background:rgba(183,131,47,.16);color:var(--amber)}
+.fh-t.long{background:rgba(121,107,83,.14);color:var(--bronze)}
+.fh-t.b2c{background:var(--sand);color:var(--muted)}
+.fh-c h3{font:600 19px/1.3 var(--sans);margin:0}
+.fh-c p{margin:0;font-size:15px;color:var(--ink2)}
+.fh-m{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:2px}
+.fh-m div{background:var(--paper);border-radius:10px;padding:9px 11px;font-size:13px;color:var(--muted)}
+.fh-m b{display:block;font-size:14.5px;color:var(--ink);font-weight:600;margin-top:2px}
+.fh-c .who{font-size:13.5px;color:var(--muted)}
+.fh-c a{font-size:14px;color:var(--bronze);text-decoration:none;font-weight:500;margin-top:auto}
+.fh-c a:hover{text-decoration:underline}
+.fh-flow{margin-top:28px;background:var(--ink);color:#F1EEE9;border-radius:var(--r);padding:22px 24px;display:grid;grid-template-columns:auto 1fr;gap:22px;align-items:center}
+.fh-flow .lbl{font:600 13px/1.3 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--brass);max-width:16ch}
+.fh-steps{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.fh-steps span{padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.07);font-size:14.5px}
+.fh-steps em{font-style:normal;color:var(--brass)}
+@media(max-width:1100px){.fh-groups{grid-template-columns:1fr 1fr}}
+@media(max-width:700px){.fh-groups{grid-template-columns:1fr}.fh-flow{grid-template-columns:1fr}}
 /* readable v1: без полос, один читаемый шрифт, шире контент */
 :root{--serif:"Outfit","Helvetica Neue",Arial,sans-serif;--max:1400px}
 .hero::after{display:none}
@@ -437,14 +466,14 @@ body{font-size:17.5px;line-height:1.6}
 
 <nav class="nav"><div class="wrap">
   <b>D&amp;B <span>Партнёры</span></b>
-  <a class="first" href="#offer">Оффер</a><a href="#map">Карта</a><a href="#start">Старт</a><a href="#weeks">План</a><a href="#law">Законы</a><a href="#backlog">Партнёры</a><a href="#seo">Поиск и ИИ</a><a href="#b2c">Частники</a><a href="#all">Все гипотезы</a><a href="#need">Что нужно</a>
+  <a class="first" href="#final">Гипотезы</a><a href="#offer">Оффер</a><a href="#map">Карта</a><a href="#start">Старт</a><a href="#weeks">План</a><a href="#law">Законы</a><a href="#backlog">Партнёры</a><a href="#seo">Поиск и ИИ</a><a href="#b2c">Частники</a><a href="#all">Все гипотезы</a><a href="#need">Что нужно</a>
 </div></nav>
 
 <header class="hero">
   <div class="wrap">
     <div class="eyebrow" style="color:var(--brass)">Перголы WIN CLIMATIC · портфель гипотез · ноябрь 2026</div>
     <h1>Как находить партнёров <em>с помощью ИИ</em></h1>
-    <p class="lead">Девять способов привести дизайнеров, архитекторов, подрядчиков и рестораны, которые будут продавать наши перголы своим клиентам. Отсортированы по тому, как быстро и дёшево дают первую заявку.</p>
+    <p class="lead">Восемь гипотез, как привести дизайнеров, архитекторов, подрядчиков и рестораны, которые будут продавать наши перголы своим клиентам. Собраны из анализа рынка, конкурентов и законов.</p>
     <div class="three">
       <div><div class="n">01</div><h3>Начинаем с Хорватии</h3><p>Там закон разрешает писать компаниям без предварительного согласия, а монтаж, сервис и представитель уже на месте. В Австрии, Германии, Польше, Испании и Италии холодные письма фирмам без согласия запрещены.</p></div>
       <div><div class="n">02</div><h3>Один сильный оффер</h3><p>«Визуализация перголы на фото террасы вашего клиента за 24 часа, цена из 3D-планера, клиент закреплён за вами». Работает в любом канале.</p></div>
@@ -452,6 +481,58 @@ body{font-size:17.5px;line-height:1.6}
     </div>
   </div>
 </header>
+
+<!-- FINAL -->
+<section class="fh" id="final">
+  <div class="wrap">
+    <div class="io"><div class="eyebrow">Итог анализа</div>
+    <h2>Восемь гипотез, <em>которые запускаем</em></h2>
+    <p class="lead">Из анализа рынка, конкурентов, законов и инструментов мы оставили восемь способов привести партнёров и клиентов. Ниже — что это, кому, сколько стоит тест и когда ждать первый результат. Подробности по каждой — дальше на странице.</p></div>
+    <div class="fh-groups io">
+    <div class="fh-g"><div class="fh-gt"><i>💼</i>LinkedIn</div>
+      <div class="fh-c"><div class="fh-top"><span class="fh-n">01</span><span class="fh-t now">Старт сейчас</span></div>
+        <h3>LinkedIn-аутрич</h3><p>Пишем от личных профилей дизайнерам, архитекторам, подрядчикам и девелоперам, на языке их профиля. Предлагаем сразу визуализацию террасы их клиента за 24 часа.</p><div class="who">Кому: партнёры по всей Европе</div>
+        <div class="fh-m"><div>Тест стоит<b>0 $ + время</b></div><div>Первый результат<b>1–2 недели</b></div></div>
+        <a href="#start">Как устроен оффер →</a></div>
+      <div class="fh-c"><div class="fh-top"><span class="fh-n">02</span><span class="fh-t t2">Tier 2</span></div>
+        <h3>Платная реклама в LinkedIn</h3><p>Продвигаем посты владельца компании «до/после» и показываем рекламу только сотрудникам компаний из нашей базы. Законная замена холодным письмам там, где они запрещены.</p><div class="who">Кому: архитекторы, девелоперы, управляющие отелями</div>
+        <div class="fh-m"><div>Тест стоит<b>от 10 $ в день, тест 300–500 €</b></div><div>Первый результат<b>1–2 недели</b></div></div>
+        <a href="../instrumenty/">Подробнее в инструментах →</a></div>
+      <div class="fh-c"><div class="fh-top"><span class="fh-n">03</span><span class="fh-t now">Старт сейчас</span></div>
+        <h3>Контент в LinkedIn</h3><p>1–2 поста в неделю от личных профилей: «до/после», объекты, цены и разрешения. Тот, кому мы написали, заходит в профиль и видит живого эксперта, а не пустую страницу.</p><div class="who">Кому: все, кому пишем, и их окружение</div>
+        <div class="fh-m"><div>Тест стоит<b>0 $, посты и картинки готовит Claude</b></div><div>Первый результат<b>3–6 недель</b></div></div>
+        <a href="#backlog">Как ИИ усиливает каналы →</a></div>
+    </div>
+    <div class="fh-g"><div class="fh-gt"><i>📍</i>База и прямой контакт</div>
+      <div class="fh-c"><div class="fh-top"><span class="fh-n">04</span><span class="fh-t now">Старт сейчас</span></div>
+        <h3>Google Maps → письма и звонки</h3><p>Собираем подрядчиков, студии и архитекторов, Claude пишет личную первую строку по их сайту. Цепочка из 3 писем, затем звонок тем, кто открыл письмо или ответил. Письма — только в странах, где это законно.</p><div class="who">Кому: подрядчики и студии Хорватии, дальше Франция</div>
+        <div class="fh-m"><div>Тест стоит<b>150–190 $ в месяц</b></div><div>Первый результат<b>неделя 3</b></div></div>
+        <a href="#start">Шаблоны писем и CRM →</a></div>
+      <div class="fh-c"><div class="fh-top"><span class="fh-n">05</span><span class="fh-t now">Старт сейчас</span></div>
+        <h3>Радар «Кто строит?» + презентация</h3><p>Дважды в неделю ИИ просматривает новости и открытые данные: новые отели, рестораны, стройки вилл. Представитель звонит и коротко показывает продукт с визуализацией их объекта. Задел на сезон 2027.</p><div class="who">Кому: новые отели, рестораны, девелоперы</div>
+        <div class="fh-m"><div>Тест стоит<b>5–20 $ в месяц</b></div><div>Первый результат<b>1–2 недели до разговора</b></div></div>
+        <a href="../instrumenty/#radar">Что уже нашёл радар →</a></div>
+      <div class="fh-c"><div class="fh-top"><span class="fh-n">06</span><span class="fh-t now">Старт сейчас</span></div>
+        <h3>Личная страница для топ-100</h3><p>Находим 100 лучших ресторанов и партнёров Хорватии, у которых уже есть терраса. Каждому — своя страница: их терраса с перголой, цена и кнопка «закрепить клиента». Открыл страницу — звоним в тот же день.</p><div class="who">Кому: рестораны, отели и партнёры с террасами</div>
+        <div class="fh-m"><div>Тест стоит<b>15–40 $ на 100 страниц</b></div><div>Первый результат<b>3–7 дней</b></div></div>
+        <a href="../instrumenty/#page">Как выглядит страница →</a></div>
+    </div>
+    <div class="fh-g"><div class="fh-gt"><i>🌐</i>Долгие активы и частники</div>
+      <div class="fh-c"><div class="fh-top"><span class="fh-n">07</span><span class="fh-t long">Долгий актив</span></div>
+        <h3>SEO и GEO: новый сайт</h3><p>Сайт на английском, испанском, немецком и хорватском: страницы для партнёров и ресторанов плюс 30 статей. Приводит заявки из Google и из ответов ChatGPT.</p><div class="who">Кому: партнёры, HoReCa, владельцы вилл</div>
+        <div class="fh-m"><div>Тест стоит<b>600–1 500 € за 90 дней</b></div><div>Первый результат<b>3–6 месяцев</b></div></div>
+        <a href="#seo">Языки, страницы и статьи →</a></div>
+      <div class="fh-c"><div class="fh-top"><span class="fh-n">08</span><span class="fh-t b2c">B2C · дополнительно</span></div>
+        <h3>Pinterest</h3><p>Доски «терраса ресторана», «вилла у моря» с визуализациями и ссылкой на визуализатор. Там дизайнеры и частники собирают идеи для террас.</p><div class="who">Кому: частники и дизайнеры интерьера</div>
+        <div class="fh-m"><div>Тест стоит<b>0 $ без рекламы</b></div><div>Первый результат<b>1–3 месяца</b></div></div>
+        <a href="#b2c">Расчёт по частникам →</a></div>
+    </div>
+    </div>
+    <div class="fh-flow io"><div class="lbl">Все гипотезы ведут в одну точку</div>
+      <div class="fh-steps"><span>Фото террасы → визуализация за 24 ч</span><em>→</em><span>Цена из 3D-планера</span><em>→</em><span>Клиент закреплён в партнёрском кабинете</span><em>→</em><span>CRM: замер и договор</span></div></div>
+    <p class="io" style="margin-top:14px;font-size:13.5px;color:var(--muted)">Суммы и сроки — оценка для теста, не прогноз.</p>
+  </div>
+</section>
 
 <!-- OFFER -->
 <section id="offer">
