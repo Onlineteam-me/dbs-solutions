@@ -191,6 +191,15 @@ footer{background:var(--white);color:var(--muted);border-top:1px solid var(--lin
 #ideas{background:var(--paper)}
 #ideas .it{background:var(--white)}
 
+.od{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:36px}
+.odc{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:26px}
+.odc .fl{font-size:30px}
+.odc h4{font:400 28px/1.1 var(--serif);margin:8px 0 18px}
+.odn{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px}
+.odn b{font:400 34px/1 var(--serif);color:var(--bronze);display:block}
+.odn span{font-size:13.5px;color:var(--muted)}
+.odc p{margin:18px 0 0;padding-top:14px;border-top:1px solid var(--line);font-size:14.5px;color:var(--ink2)}
+@media(max-width:860px){.od{grid-template-columns:1fr}}
 /* полный каталог и связки */
 .tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:36px}
 .tabs button{font:500 15px/1 var(--sans);padding:12px 18px;border-radius:999px;border:1px solid var(--line);background:var(--white);cursor:pointer;color:var(--ink)}
@@ -321,7 +330,20 @@ details.l[open] summary::after{content:"–"}
       <div class="sg"><div class="fl">🇪🇸</div><div><h4>Leonardo Hotel, Торремолинос</h4><p>398 номеров, закрыт на полную реконструкцию, бар на крыше. Открытие — май 2027. <a href="https://www.revistahosteleria.com/texto-diario/mostrar/6072435/leonardo-hotels-acomete-renovacion-integral-hotel-torremolinos-costa-sol" target="_blank" rel="noopener">источник</a></p></div><div class="sc"><b>25</b><span>из 25</span></div></div>
       <div class="sg"><div class="fl">🇪🇸</div><div><h4>Hotel Portixol, Пальма</h4><p>В проекте реформы терраса 768 м², из них 205 м² прямо заложены под перголы и тенты. <a href="https://www.ultimahora.es/noticias/palma/2026/10/20/2732193/hotel-portixol-solicita-apb-ampliar-permiso-ocupacion-planea-reforma-planta-baja-piscina-terraza.html" target="_blank" rel="noopener">источник</a></p></div><div class="sc"><b>20</b><span>из 25</span></div></div>
     </div>
-    <p class="note">Оценка = «как скоро появится терраса» × «насколько крупный объект», каждая от 1 до 5. Что радар пока не умеет: маленькие рестораны и частные виллы в новости почти не попадают — для них нужны другие источники (карточки Google Maps, данные о разрешениях на стройку). И 9 из 10 новостей — шум, поэтому отбор делает ИИ, а финальный список смотрит человек.</p>
+    <p class="note">Оценка = «как скоро появится терраса» × «насколько крупный объект», каждая от 1 до 5. В 9 из 10 новостей — шум, поэтому отбор делает ИИ, а финальный список смотрит человек.</p>
+
+    <div class="io" style="margin-top:64px"><div class="eyebrow">Второй источник · проверено руками 17.11.2026</div>
+    <h2 style="max-width:24ch">Открытые данные: <em>кто строит и у кого уже есть терраса</em></h2>
+    <p class="lead">Новости ловят только крупные отели. Маленькие рестораны и частные дома видны в государственных данных — они бесплатные и обновляются сами.</p></div>
+    <div class="od io">
+      <div class="odc"><div class="fl">🇪🇸</div><h4>Мадрид: данные мэрии</h4>
+        <div class="odn"><div><b>11 823</b><span>лицензии на стройку и деятельность с 2023 года</span></div><div><b>214</b><span>ресторанов, баров и отелей получили лицензию в 2026</span></div><div><b>6 620</b><span>террас заведений с названием и площадью</span></div><div><b>252</b><span>террасы уже с маркизой на опорах — кандидаты на перголу</span></div></div>
+        <p>Скачивается одним файлом, обновляется раз в месяц. Имени владельца нет, но есть вывеска и адрес — контакт находится вторым шагом.</p></div>
+      <div class="odc"><div class="fl">🇭🇷</div><h4>Хорватия: карта разрешений на стройку</h4>
+        <div class="odn"><div><b>270</b><span>актов 2026 года собрано по центрам 16 городов побережья</span></div><div><b>192</b><span>жилых дома</span></div><div><b>9</b><span>отелей и туристических объектов (Ровинь, Сплит, Цриквеница)</span></div><div><b>34</b><span>уведомления «стройка началась»</span></div></div>
+        <p>Видны дата, назначение, описание и участок. Имя инвестора есть только на доске объявлений системы — её нужно смотреть через браузер, это следующий шаг.</p></div>
+    </div>
+    <p class="note" style="display:none">Оценка =«как скоро появится терраса» × «насколько крупный объект», каждая от 1 до 5. Что радар пока не умеет: маленькие рестораны и частные виллы в новости почти не попадают — для них нужны другие источники (карточки Google Maps, данные о разрешениях на стройку). И 9 из 10 новостей — шум, поэтому отбор делает ИИ, а финальный список смотрит человек.</p>
   </div>
 </section>
 
