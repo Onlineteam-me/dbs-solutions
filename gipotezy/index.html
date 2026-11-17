@@ -1,0 +1,802 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Как находить партнёров — D&amp;B Solutions</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --stone:#EFEEEB; --sand:#E7E0D4; --paper:#F7F5F1; --white:#fff;
+  --bronze:#796B53; --brass:#C4B496; --brass2:#D9CCB2;
+  --ink:#171512; --ink2:#2B2A27; --anth:#2F3437; --muted:#6B645B;
+  --green:#3F7D58; --amber:#B7832F; --red:#A8483B;
+  --line:rgba(23,21,18,.12); --lined:rgba(241,238,233,.14);
+  --serif:"Instrument Serif", Georgia, serif; --sans:"Outfit","Helvetica Neue",Arial,sans-serif;
+  --pad:clamp(16px,4vw,56px); --max:1180px; --r:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--stone);color:var(--ink);font:400 17px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:var(--max);margin:0 auto;padding-inline:var(--pad)}
+section{padding-block:clamp(64px,9vw,120px)}
+h1,h2,h3,h4{margin:0;font-weight:400}
+h2{font:400 clamp(36px,5vw,64px)/1.03 var(--serif);letter-spacing:-.01em;max-width:20ch}
+h2 em,h1 em{font-style:italic;color:var(--bronze)}
+.eyebrow{font:500 12px/1 var(--sans);letter-spacing:.18em;text-transform:uppercase;color:var(--bronze);display:inline-flex;gap:10px;align-items:center;margin-bottom:20px}
+.eyebrow::before{content:"";width:28px;height:1px;background:currentColor}
+.lead{font-size:clamp(17px,1.5vw,20px);color:var(--muted);max-width:60ch;margin-top:18px}
+.est{font-size:12px;color:var(--muted);border:1px dashed var(--line);border-radius:999px;padding:1px 8px;white-space:nowrap}
+.dark .est{border-color:var(--lined);color:rgba(241,238,233,.55)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:40;background:rgba(239,238,235,.9);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav .wrap{display:flex;gap:22px;align-items:center;height:60px;overflow-x:auto;scrollbar-width:none}
+.nav .wrap::-webkit-scrollbar{display:none}
+.nav b{font:700 17px/1 var(--sans);white-space:nowrap}
+.nav b span{font:italic 400 18px var(--serif);color:var(--bronze)}
+.nav a{font-size:14px;text-decoration:none;color:var(--ink2);white-space:nowrap}
+.nav a:hover{color:var(--bronze)}
+.nav .first{margin-left:auto}
+
+/* hero */
+.hero{background:var(--ink);color:#F1EEE9;position:relative;overflow:hidden;padding-block:clamp(72px,10vw,130px) clamp(56px,7vw,90px)}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(100deg,transparent 0 52px,rgba(196,180,150,.06) 52px 64px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font:400 clamp(46px,7.5vw,104px)/.95 var(--serif);letter-spacing:-.02em;max-width:14ch}
+.hero h1 em{color:var(--brass)}
+.hero .lead{color:rgba(241,238,233,.72)}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--lined);border:1px solid var(--lined);border-radius:var(--r);overflow:hidden;margin-top:56px}
+.three div{background:var(--ink);padding:28px}
+.three .n{font:italic 400 44px/1 var(--serif);color:var(--brass)}
+.three h3{font:500 20px/1.3 var(--sans);margin:14px 0 8px;color:#F1EEE9}
+.three p{margin:0;color:rgba(241,238,233,.68);font-size:15.5px}
+@media(max-width:860px){.three{grid-template-columns:1fr}}
+
+/* offer */
+.offer{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:48px;position:relative}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:26px;position:relative}
+.step .k{font:400 15px/1 var(--sans);color:var(--bronze);letter-spacing:.1em}
+.step h3{font:500 19px/1.3 var(--sans);margin:12px 0 8px}
+.step p{margin:0;font-size:15px;color:var(--muted)}
+.step:not(:last-child)::after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);width:24px;height:24px;border-radius:50%;background:var(--bronze);color:#fff;display:grid;place-items:center;font-size:13px;z-index:2}
+.where{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.where span{padding:7px 14px;border-radius:999px;background:var(--sand);font-size:14px}
+@media(max-width:860px){.offer{grid-template-columns:1fr 1fr}.step:not(:last-child)::after{display:none}}
+@media(max-width:520px){.offer{grid-template-columns:1fr}}
+
+/* map chart */
+.chartbox{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(16px,3vw,32px);margin-top:44px}
+.chart-scroll{overflow-x:auto}
+#bubble{display:block;width:100%;min-width:620px;height:auto}
+#bubble text{font-family:var(--sans)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:var(--muted);margin-top:14px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+
+/* start cards */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-top:40px}
+.tabs button{font:500 15px/1 var(--sans);padding:12px 18px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;color:var(--ink)}
+.tabs button.on{background:var(--ink);color:#F1EEE9;border-color:var(--ink)}
+.card{display:none;background:var(--white);border:1px solid var(--line);border-radius:22px;margin-top:18px;overflow:hidden}
+.card.on{display:block;animation:fade .45s ease}
+@keyframes fade{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.card-top{display:grid;grid-template-columns:1.4fr 1fr;gap:0}
+.card-main{padding:clamp(22px,3vw,38px)}
+.card-main .tag{font:600 13px/1 var(--sans);letter-spacing:.12em;color:var(--bronze)}
+.card-main h3{font:400 clamp(30px,3.4vw,42px)/1.05 var(--serif);margin:12px 0 14px}
+.card-main p{color:var(--muted);margin:0 0 12px}
+.card-side{background:var(--ink);color:#F1EEE9;padding:clamp(22px,3vw,38px);display:grid;gap:18px;align-content:start}
+.kv b{display:block;font:400 30px/1.05 var(--serif);color:var(--brass)}
+.kv span{font-size:14px;color:rgba(241,238,233,.65)}
+.split{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--line)}
+.split>div{padding:24px clamp(22px,3vw,38px)}
+.split>div+div{border-left:1px solid var(--line)}
+.split h4{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);margin-bottom:12px}
+.split ul{margin:0;padding-left:18px;color:var(--ink2);font-size:15.5px}
+.split li{margin-bottom:6px}
+.ok{color:var(--green)} .stop{color:var(--red)}
+@media(max-width:860px){.card-top,.split{grid-template-columns:1fr}.split>div+div{border-left:0;border-top:1px solid var(--line)}}
+
+/* pipeline */
+.pipe{display:flex;gap:0;margin-top:20px;flex-wrap:wrap}
+.pipe div{flex:1 1 140px;padding:16px 18px;background:var(--paper);border:1px solid var(--line);margin:-1px 0 0 -1px;font-size:14.5px}
+.pipe div b{display:block;font:400 22px/1.1 var(--serif);color:var(--bronze);margin-bottom:4px}
+details.mail{border:1px solid var(--line);border-radius:14px;margin-top:10px;background:var(--paper)}
+details.mail summary{cursor:pointer;padding:14px 18px;font-weight:500;list-style:none;display:flex;justify-content:space-between}
+details.mail summary::-webkit-details-marker{display:none}
+details.mail summary::after{content:"+";color:var(--bronze);font-size:22px;line-height:1}
+details.mail[open] summary::after{content:"–"}
+details.mail pre{margin:0;padding:0 18px 18px;white-space:pre-wrap;font:400 14.5px/1.6 var(--sans);color:var(--ink2)}
+
+/* weeks */
+.weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:44px}
+.wk{border-top:3px solid var(--brass);padding-top:16px}
+.wk h4{font:400 30px/1 var(--serif)}
+.wk h4 small{font:500 13px var(--sans);color:var(--muted);margin-left:6px}
+.wk ul{padding-left:18px;margin:12px 0 0;color:var(--ink2);font-size:15.5px}
+.wk li{margin-bottom:6px}
+@media(max-width:860px){.weeks{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.weeks{grid-template-columns:1fr}}
+
+/* law */
+.law{background:var(--anth);color:#F1EEE9}
+.law h2 em{color:var(--brass)}
+.law .lead{color:rgba(241,238,233,.7)}
+.countries{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:44px}
+.cty{border-radius:16px;padding:20px;background:rgba(255,255,255,.04);border:1px solid var(--lined)}
+.cty .f{font-size:28px}
+.cty h4{font:500 18px/1.2 var(--sans);margin:10px 0 6px}
+.cty p{margin:0;font-size:14.5px;color:rgba(241,238,233,.7)}
+.cty .s{display:inline-block;font:600 12px/1 var(--sans);letter-spacing:.08em;padding:6px 10px;border-radius:999px;margin-top:12px}
+.g .s{background:rgba(92,170,120,.22);color:#9FE0B5}
+.y .s{background:rgba(214,165,70,.22);color:#F2CB7E}
+.rd .s{background:rgba(200,90,75,.24);color:#F2A196}
+.g{border-color:rgba(92,170,120,.45)}
+@media(max-width:860px){.countries{grid-template-columns:1fr 1fr}}
+.gdpr{margin-top:36px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gdpr div{font-size:14.5px;color:rgba(241,238,233,.78);padding:14px 16px;border-left:2px solid var(--brass);background:rgba(255,255,255,.03)}
+@media(max-width:860px){.gdpr{grid-template-columns:1fr}}
+
+/* backlog */
+.backlog{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:44px}
+.bl{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:20px;display:flex;flex-direction:column}
+.bl .id{font:italic 400 26px/1 var(--serif);color:var(--bronze)}
+.bl h4{font:500 17px/1.3 var(--sans);margin:10px 0 8px}
+.bl p{margin:0;font-size:14.5px;color:var(--muted);flex:1}
+.bl .meta{margin-top:14px;font-size:13px;color:var(--ink2);border-top:1px solid var(--line);padding-top:10px}
+@media(max-width:1000px){.backlog{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.backlog{grid-template-columns:1fr}}
+
+/* improve */
+.imp{margin-top:40px;border-top:1px solid var(--line)}
+.imp div{display:grid;grid-template-columns:220px 1fr;gap:20px;padding:20px 0;border-bottom:1px solid var(--line)}
+.imp b{font:400 24px/1.1 var(--serif)}
+.imp p{margin:0;color:var(--ink2);font-size:15.5px}
+@media(max-width:700px){.imp div{grid-template-columns:1fr;gap:6px}}
+
+/* b2c funnel */
+.b2c{background:var(--sand)}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,70px);align-items:center;margin-top:20px}
+.funnel{display:grid;gap:8px}
+.fb{background:var(--ink);color:#F1EEE9;border-radius:12px;padding:14px 18px;display:flex;justify-content:space-between;gap:12px;margin-inline:auto;width:100%;font-size:15px}
+.fb b{font:400 22px/1 var(--serif);color:var(--brass);white-space:nowrap}
+.verdict{background:var(--paper);border-radius:var(--r);padding:28px;border:1px solid var(--line)}
+.verdict h3{font:400 30px/1.1 var(--serif);margin-bottom:12px}
+.verdict ul{padding-left:18px;margin:0;color:var(--ink2)}
+.verdict li{margin-bottom:8px}
+@media(max-width:860px){.fgrid{grid-template-columns:1fr}}
+@media(max-width:600px){.fb{width:100%!important}}
+
+/* table */
+.tbl{overflow-x:auto;margin-top:40px;border:1px solid var(--line);border-radius:16px;background:var(--white)}
+table{border-collapse:collapse;width:100%;min-width:820px;font-size:14.5px}
+th{text-align:left;font:600 12px/1.2 var(--sans);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:14px 16px;border-bottom:1px solid var(--line);background:var(--paper);cursor:pointer;white-space:nowrap}
+th:hover{color:var(--bronze)}
+td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}
+tr:last-child td{border-bottom:0}
+td:first-child{font:italic 400 20px var(--serif);color:var(--bronze);white-space:nowrap}
+.pill{display:inline-block;padding:3px 10px;border-radius:999px;font-size:12.5px;font-weight:500}
+.p-start{background:rgba(63,125,88,.14);color:var(--green)}
+.p-back{background:rgba(121,107,83,.14);color:var(--bronze)}
+.p-later{background:rgba(168,72,59,.12);color:var(--red)}
+
+/* need */
+.need{background:var(--ink);color:#F1EEE9}
+.need h2 em{color:var(--brass)}
+.chk{list-style:none;padding:0;margin:40px 0 0;display:grid;gap:12px;counter-reset:c}
+.chk li{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;padding:20px 22px;border:1px solid var(--lined);border-radius:16px;cursor:pointer;transition:background .25s}
+.chk li:hover{background:rgba(255,255,255,.03)}
+.chk li::before{counter-increment:c;content:counter(c);width:34px;height:34px;border-radius:50%;border:1px solid var(--brass);display:grid;place-items:center;color:var(--brass);font-weight:500}
+.chk li.done::before{content:"✓";background:var(--brass);color:var(--ink)}
+.chk li.done b{text-decoration:line-through;opacity:.6}
+.chk b{font-weight:500;font-size:17.5px;display:block}
+.chk span{color:rgba(241,238,233,.62);font-size:15px}
+footer{background:var(--ink);color:rgba(241,238,233,.5);font-size:13px;padding-block:28px calc(28px + env(safe-area-inset-bottom,0px));border-top:1px solid var(--lined)}
+.io{opacity:0;transform:translateY(24px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.io.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.io{opacity:1;transform:none;transition:none}}
+
+/* before / after + prompts */
+.viz{display:grid;grid-template-columns:1.6fr 1fr;gap:14px;margin-top:44px}
+.ba{position:relative;border-radius:var(--r);overflow:hidden;background:var(--sand);aspect-ratio:16/9;max-width:100%;user-select:none}
+.ba img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.ba .before{clip-path:inset(0 calc(100% - var(--x,50%)) 0 0)}
+.ba .bar{position:absolute;top:0;bottom:0;left:var(--x,50%);width:2px;background:#fff;transform:translateX(-1px);pointer-events:none}
+.ba .bar::after{content:"⇆";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:38px;height:38px;border-radius:50%;background:#fff;color:var(--ink);display:grid;place-items:center;font-size:16px;box-shadow:0 4px 16px rgba(0,0,0,.25)}
+.ba input{position:absolute;inset:0;width:100%;height:100%;opacity:0;cursor:ew-resize;margin:0}
+.ba .lab{position:absolute;top:14px;padding:6px 12px;border-radius:999px;background:rgba(23,21,18,.72);color:#F1EEE9;font-size:13px;pointer-events:none}
+.ba .lab.l{left:14px}.ba .lab.r{right:14px}
+.ba.nobefore .before,.ba.nobefore .bar,.ba.nobefore input,.ba.nobefore .lab.l{display:none}
+.ba .soon{display:none;position:absolute;left:14px;bottom:14px;padding:6px 12px;border-radius:999px;background:rgba(247,245,241,.9);font-size:13px;color:var(--ink2)}
+.ba.nobefore .soon{display:block}
+.vside{display:grid;gap:14px;grid-template-rows:1fr auto}
+.vcard{position:relative;border-radius:var(--r);overflow:hidden;background:var(--sand);min-height:180px}
+.vcard img{width:100%;height:100%;object-fit:cover;display:block;position:absolute;inset:0}
+.vcard .lab{position:absolute;left:12px;bottom:12px;padding:6px 12px;border-radius:999px;background:rgba(23,21,18,.72);color:#F1EEE9;font-size:13px}
+.vnote{background:var(--paper);border:1px solid var(--line);border-radius:var(--r);padding:18px 20px;font-size:14.5px;color:var(--ink2)}
+.vnote b{display:block;font:400 22px/1.1 var(--serif);color:var(--bronze);margin-bottom:6px}
+@media(max-width:860px){.viz{grid-template-columns:1fr}.vcard{aspect-ratio:16/10}}
+.prompts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:14px}
+.pr{background:var(--ink);color:#F1EEE9;border-radius:var(--r);padding:22px;display:flex;flex-direction:column;gap:10px}
+.pr .n{font:italic 400 30px/1 var(--serif);color:var(--brass)}
+.pr h4{font:500 18px/1.25 var(--sans)}
+.pr .up{font-size:13.5px;color:rgba(241,238,233,.65)}
+.pr .up code{font:500 12.5px/1.4 ui-monospace,Menlo,monospace;color:var(--brass2);background:rgba(255,255,255,.06);padding:1px 6px;border-radius:6px}
+.pr pre{margin:0;flex:1;white-space:pre-wrap;font:400 13px/1.55 ui-monospace,Menlo,monospace;color:rgba(241,238,233,.86);background:rgba(255,255,255,.05);border:1px solid var(--lined);border-radius:12px;padding:14px;max-height:260px;overflow:auto}
+.pr button{align-self:flex-start;font:500 14px/1 var(--sans);padding:10px 16px;border-radius:999px;border:1px solid var(--brass);background:transparent;color:var(--brass);cursor:pointer}
+.pr button.done{background:var(--brass);color:var(--ink)}
+@media(max-width:1000px){.prompts{grid-template-columns:1fr}}
+
+/* crm */
+.crm{padding:4px clamp(22px,3vw,38px) clamp(22px,3vw,38px);border-top:1px solid var(--line)}
+.crm-h{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;align-items:end;margin:24px 0 16px}
+.crm-h h4{font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--bronze)}
+.crm-h p{margin:8px 0 0;color:var(--muted);font-size:15px;max-width:62ch}
+.kanban-scroll{overflow-x:auto;padding-bottom:6px}
+.kanban{display:grid;grid-template-columns:repeat(9,1fr);gap:6px}
+@media(max-width:1180px){.kanban{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:520px){.kanban{grid-template-columns:1fr 1fr}}
+.col{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:11px 10px;min-width:0;hyphens:auto;display:flex;flex-direction:column;gap:8px}
+.col .st{font:600 10.5px/1.2 var(--sans);letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.col .st i{font-style:normal;display:inline-grid;place-items:center;width:18px;height:18px;border-radius:50%;background:var(--sand);color:var(--ink2);margin-right:4px;font-size:10.5px}
+.col h5{margin:0;font:500 14px/1.25 var(--sans)}
+.col .who{font-size:12.5px;color:var(--muted)}
+.col .cnt{margin-top:auto;font:400 24px/1 var(--serif);color:var(--bronze)}
+.col.win{background:var(--ink);color:#F1EEE9;border-color:var(--ink)}
+.col.win .st,.col.win .who{color:rgba(241,238,233,.6)}
+.col.win .cnt{color:var(--brass)}
+.crm-meta{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.crm-meta div{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:14px 16px;font-size:14.5px;color:var(--ink2)}
+.crm-meta b{display:block;font-weight:600;margin-bottom:4px;color:var(--ink)}
+@media(max-width:860px){.crm-meta{grid-template-columns:1fr}}
+
+/* s2 flow */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:6px}
+.fs{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:16px;position:relative}
+.fs .k{font:italic 400 24px/1 var(--serif);color:var(--bronze)}
+.fs h5{margin:8px 0 6px;font:500 15.5px/1.25 var(--sans)}
+.fs p{margin:0;font-size:13.5px;color:var(--muted)}
+.fs .who{display:inline-block;margin-top:10px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;padding:3px 8px;border-radius:999px;background:var(--sand);color:var(--ink2)}
+.fs .who.c{background:rgba(63,125,88,.14);color:var(--green)}
+@media(max-width:1000px){.flow{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.flow{grid-template-columns:1fr}}
+.qa{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.qa div{background:var(--sand);border-radius:14px;padding:16px 18px;font-size:14.5px;color:var(--ink2)}
+.qa b{display:block;color:var(--ink);margin-bottom:4px}
+@media(max-width:860px){.qa{grid-template-columns:1fr}}
+
+/* partner mind map */
+.mm-box{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(12px,2.4vw,28px);margin-top:44px}
+.mm-scroll{overflow-x:auto}
+#mm{display:block;width:100%;min-width:860px;height:auto}
+#mm text{font-family:var(--sans)}
+#mm .br{cursor:pointer}
+#mm .dim{opacity:.18;transition:opacity .3s}
+#mm g{transition:opacity .3s}
+.mm-legend{display:flex;flex-wrap:wrap;gap:8px 18px;margin-top:14px;font-size:13.5px;color:var(--muted)}
+.mm-legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:0}
+.mm-legend .tagx{border:1px solid var(--line);border-radius:999px;padding:2px 9px;font-size:12.5px;color:var(--ink2)}
+</style>
+</head>
+<body>
+
+<nav class="nav"><div class="wrap">
+  <b>D&amp;B <span>Партнёры</span></b>
+  <a class="first" href="#offer">Оффер</a><a href="#map">Карта</a><a href="#start">Старт</a><a href="#weeks">План</a><a href="#law">Законы</a><a href="#backlog">Партнёры</a><a href="#b2c">Частники</a><a href="#all">Все гипотезы</a><a href="#need">Что нужно</a>
+</div></nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow" style="color:var(--brass)">Перголы WIN CLIMATIC · портфель гипотез · ноябрь 2026</div>
+    <h1>Как находить партнёров <em>с помощью ИИ</em></h1>
+    <p class="lead">Девять способов привести дизайнеров, архитекторов, подрядчиков и рестораны, которые будут продавать наши перголы своим клиентам. Отсортированы по тому, как быстро и дёшево дают первую заявку.</p>
+    <div class="three">
+      <div><div class="n">01</div><h3>Начинаем с Хорватии</h3><p>Там закон разрешает писать компаниям без предварительного согласия, а монтаж, сервис и представитель уже на месте. В Австрии и Германии холодные письма фирмам запрещены.</p></div>
+      <div><div class="n">02</div><h3>Один сильный оффер</h3><p>«Визуализация перголы на фото террасы вашего клиента за 24 часа, цена из 3D-планера, клиент закреплён за вами». Работает в любом канале.</p></div>
+      <div><div class="n">03</div><h3>Почте нужен разгон</h3><p>Новый домен прогревается 2–3 недели. Пока он греется, пишем лучшим компаниям вручную, по 15–20 в день. Поток — с недели 3–4.</p></div>
+    </div>
+  </div>
+</header>
+
+<!-- OFFER -->
+<section id="offer">
+  <div class="wrap">
+    <div class="io"><div class="eyebrow">Главный крючок</div>
+    <h2>Партнёр присылает фото — <em>и получает готовую продажу</em></h2>
+    <p class="lead">Партнёр не обязан разбираться в перголах. Он отправляет фото террасы клиента, а мы возвращаем всё, с чем можно идти на встречу.</p></div>
+    <div class="offer io">
+      <div class="step"><div class="k">ШАГ 1</div><h3>Фото террасы</h3><p>Партнёр или его клиент снимает террасу на телефон и присылает нам.</p></div>
+      <div class="step"><div class="k">ШАГ 2 · ДО 24 Ч</div><h3>Визуализация</h3><p>ИИ ставит перголу WIN CLIMATIC на это фото: 2–3 варианта цвета и комплектации.</p></div>
+      <div class="step"><div class="k">ШАГ 3</div><h3>Цена из 3D-планера</h3><p>Расчёт по примерным размерам и одностраничник для клиента.</p></div>
+      <div class="step"><div class="k">ШАГ 4</div><h3>Клиент закреплён</h3><p>Проект регистрируется в партнёрском кабинете. Если клиент придёт к нам напрямую, он вернётся к партнёру.</p></div>
+    </div>
+    <div class="where io"><span>Холодные письма</span><span>LinkedIn</span><span>Instagram</span><span>Встречи представителя</span><span>Женское бизнес-сообщество</span></div>
+
+    <div class="io" style="margin-top:72px"><div class="eyebrow">Как это выглядит</div>
+    <h2 style="max-width:24ch">Фото террасы <em>→ терраса с перголой</em></h2>
+    <p class="lead">Пример на фото с сайта dbscom.info. Потяните ползунок, чтобы сравнить «до» и «после». Ниже — три готовых промпта: по ним визуализации делаются в Google AI Studio (модель Gemini для картинок) за пару минут.</p></div>
+    <div class="viz io">
+      <div class="ba" id="ba" style="--x:50%">
+        <img class="after" src="img/offer/sait-terrasa.jpg" alt="Терраса с биоклиматической перголой WIN CLIMATIC, вид на виноградники">
+        <img class="before" src="img/offer/do.jpg" alt="Та же терраса без перголы" onerror="document.getElementById('ba').classList.add('nobefore')">
+        <div class="bar"></div>
+        <span class="lab l">До</span><span class="lab r">После</span>
+        <span class="soon">Пример «до» скоро появится</span>
+        <input type="range" min="0" max="100" value="50" aria-label="Сравнить до и после">
+      </div>
+      <div class="vside">
+        <div class="vcard" id="vEve">
+          <img src="img/offer/vecher.jpg" alt="Вечерний вариант: свет в ламелях и ZIP-шторы" onerror="this.src='img/offer/referens-pergola.jpg';this.nextElementSibling.textContent='Вечером: свет и ZIP-шторы'">
+          <span class="lab">Вариант 3 · вечер, свет, ZIP</span>
+        </div>
+        <div class="vnote"><b>2–3 варианта на одно фото</b>Цвет каркаса, ламели открыты или закрыты, боковые ZIP-шторы, вечерняя подсветка. Партнёр показывает клиенту выбор, а не одну картинку.</div>
+      </div>
+    </div>
+
+    <div class="prompts io">
+      <div class="pr">
+        <div class="n">1</div>
+        <h4>«До»: убрать перголу с готового фото</h4>
+        <div class="up">Загрузить: <code>sait-terrasa.jpg</code> (фото с сайта). Результат сохранить как <code>do.jpg</code> — получится точная пара «до/после».</div>
+<pre id="p1">Edit this photo. Remove the entire pergola: the black aluminium posts, the frame and the louvered roof above the terrace. Keep everything else exactly the same: camera angle, stone terrace floor, glass railing, sofas, loungers, coffee table, plant pot, the house facade with the sliding glass doors and the lit interior, the vineyards, the hills and the sunset sky. Where the roof was, show open evening sky, and let the warm low sunset light fall directly on the terrace floor and furniture with natural long shadows. Photorealistic, same framing, resolution and colour grading as the original. Do not add any new objects, people, text, logos or watermarks. Do not change the furniture, the view, the railing or the architecture.</pre>
+        <button data-p="p1">Скопировать промпт</button>
+      </div>
+      <div class="pr">
+        <div class="n">2</div>
+        <h4>«После»: поставить перголу на фото клиента</h4>
+        <div class="up">Загрузить 2 картинки: <b>первой</b> — фото террасы партнёра или ресторана (для теста — <code>do.jpg</code>), <b>второй</b> — <code>referens-pergola.jpg</code> как образец изделия.</div>
+<pre id="p2">Image 1 is a real photo of a client's terrace. Image 2 is a reference of our product: a WIN CLIMATIC S500 bioclimatic louvered aluminium pergola. Add one freestanding pergola of exactly this type to the terrace in image 1: slim square anthracite (RAL 7016) aluminium posts, a flat rectangular frame about 2.6 m high, and a roof of parallel aluminium louvers tilted open at about 45 degrees so daylight comes through in stripes. Size it to cover the main seating area, with the posts standing on the terrace floor at the corners, aligned with the floor lines and the house wall. Respect real perspective and scale (a door is about 2.1 m high). Match the light, sun direction, shadows and colours of image 1: the louvers cast striped shadows on the floor and furniture. Keep everything else in image 1 unchanged: camera angle, building, furniture, plants, view. Photorealistic architectural photo. No people, no text, no logos, no watermark. Do not change the shape of the terrace, do not add walls, curtains, extra furniture or a second pergola.</pre>
+        <button data-p="p2">Скопировать промпт</button>
+      </div>
+      <div class="pr">
+        <div class="n">3</div>
+        <h4>Вариант: вечер, подсветка и ZIP-шторы</h4>
+        <div class="up">Загрузить: результат промпта 2 (или <code>sait-terrasa.jpg</code>). Сохранить как <code>vecher.jpg</code>.</div>
+<pre id="p3">Keep this exact image: the same camera angle, terrace, pergola size and position, furniture and view. Change only the time of day and the pergola settings. Make it the blue hour just after sunset: deep blue sky with a faint warm glow on the horizon. Close the pergola louvers into a flat roof. Turn on warm white (3000 K) LED strips that glow along the inner edges of the frame and between the louvers, softly lighting the terrace floor and the furniture. Lower dark grey fabric ZIP screens on the one side of the pergola that faces away from the house, about two thirds down, with the fabric slightly see-through. Warm lights are on inside the house. Photorealistic evening architectural photo, realistic light falloff and reflections on the floor. No people, no text, no logos, no watermark. Do not move or resize the pergola, do not change the furniture, the building or the view.</pre>
+        <button data-p="p3">Скопировать промпт</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="map" style="padding-top:0">
+  <div class="wrap">
+    <div class="io"><div class="eyebrow">Карта гипотез</div>
+    <h2>Что быстрее <em>и дешевле</em></h2>
+    <p class="lead">По горизонтали — через сколько недель первая заявка, по вертикали — сколько стоит тест (шкала сжатая). Чем ближе к левому нижнему углу, тем раньше стоит запускать. Наведите на точку.</p></div>
+    <div class="chartbox io">
+      <div class="chart-scroll"><svg id="bubble" viewBox="0 0 900 460" role="img" aria-label="Карта гипотез: стоимость теста и срок до первого лида"></svg></div>
+      <div class="legend"><span><i style="background:var(--green)"></i>Старт на неделе 2</span><span><i style="background:var(--bronze)"></i>Бэклог, недели 3–6</span><span><i style="background:var(--red)"></i>Позже</span><span class="est">все цифры — оценка</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- START -->
+<section id="start" style="background:var(--paper)">
+  <div class="wrap">
+    <div class="io"><div class="eyebrow">Старт на неделе 2</div>
+    <h2>Три гипотезы, <em>которые запускаем первыми</em></h2></div>
+    <div class="tabs" role="tablist">
+      <button class="on" data-c="s1">S1 · Google Maps → почта</button>
+      <button data-c="s2">S2 · Рестораны побережья</button>
+      <button data-c="s3">S3 · Оффер в LinkedIn</button>
+    </div>
+
+    <article class="card on" id="s1">
+      <div class="card-top">
+        <div class="card-main">
+          <div class="tag">S1 · ХОЛОДНАЯ ПОЧТА</div>
+          <h3>База студий и подрядчиков Хорватии → письма с оффером</h3>
+          <p>Собираем из Google Maps студии дизайна интерьера, архитектурные бюро, ремонтные фирмы и ландшафтников. Claude читает сайт каждой компании, ставит ей оценку и пишет личную первую строку письма. Дальше — цепочка из 3 писем.</p>
+          <p><b>Города:</b> Загреб, Сплит, Риека, Задар, Истрия, Дубровник. Если сработает, следом Франция и Словения.</p>
+          <div class="pipe">
+            <div><b>1 500–3 000</b>карточек из Google Maps</div>
+            <div><b>Фильтр</b>сайт, почта на домене, рейтинг ≥ 4,0</div>
+            <div><b>Оценка 1–5</b>есть ли на сайте террасы и виллы</div>
+            <div><b>400–600</b>живых почт</div>
+            <div><b>3 письма</b>день 0 · 3–4 · 8–10</div>
+          </div>
+        </div>
+        <div class="card-side">
+          <div class="kv"><b>150–190 $</b><span>тест на месяц: Apify, домены, ящики, сервис рассылки</span></div>
+          <div class="kv"><b>Неделя 3</b><span>первая заявка от ручных писем; поток — с недели 4</span></div>
+          <div class="kv"><b>≥ 1 %</b><span>положительных ответов на 300 писем: 3+ партнёра хотят звонок</span></div>
+          <span class="est" style="justify-self:start">оценка</span>
+        </div>
+      </div>
+      <div class="split">
+        <div><h4>Делает Claude</h4><ul><li>Запросы на хорватском и английском, сбор базы</li><li>Чистка и оценка компаний</li><li>Первая строка по сайту (до 25 слов, с конкретным проектом)</li><li>Перевод, разбор ответов, черновики ответов</li><li>Визуализация по присланному фото</li></ul></div>
+        <div><h4>Делает человек</h4><ul><li>Покупает домен и почтовые ящики</li><li>Ведёт ответы и звонки</li><li>Утверждает скидку партнёру</li><li>Проверяет 10 % писем перед отправкой</li></ul>
+        <h4 style="margin-top:20px">Успех и стоп</h4><ul><li class="ok">Отказы доставки &lt; 3 %, ответ ≥ 3 %, хотя бы 1 присланный проект</li><li class="stop">0–1 положительный на 300 писем → меняем первую строку и оффер, потом сегмент</li></ul></div>
+      </div>
+      <div class="crm">
+        <div class="crm-h">
+          <div><h4>CRM: каждый контакт на своём этапе</h4>
+          <p>Все компании из базы попадают в одну таблицу с канбан-доской. Туда же идут контакты из LinkedIn, Instagram, ресторанов и встреч представителя, поэтому видно, какой канал даёт сделки. Статусы из сервиса рассылки и ответы Claude переносит в CRM каждый день.</p></div>
+          <span class="est" style="white-space:normal">цифры в колонках — пример воронки на 1 500 компаний, оценка</span>
+        </div>
+        <div class="kanban-scroll"><div class="kanban">
+          <div class="col"><div class="st"><i>1</i>База</div><h5>Найдено</h5><div class="who">Apify из Google Maps, почта с сайта</div><div class="cnt">1 500</div></div>
+          <div class="col"><div class="st"><i>2</i>Отбор</div><h5>Подходит</h5><div class="who">Claude: оценка 4–5, есть террасы и виллы</div><div class="cnt">500</div></div>
+          <div class="col"><div class="st"><i>3</i>Касание</div><h5>Написали</h5><div class="who">Цепочка из 3 писем запущена</div><div class="cnt">300</div></div>
+          <div class="col"><div class="st"><i>4</i>Ответ</div><h5>Ответил</h5><div class="who">Claude сортирует: интерес, вопрос, отказ</div><div class="cnt">9</div></div>
+          <div class="col"><div class="st"><i>5</i>Разговор</div><h5>Созвон или встреча</h5><div class="who">Человек: 15 минут, показ кабинета</div><div class="cnt">4</div></div>
+          <div class="col"><div class="st"><i>6</i>Проект</div><h5>Прислал фото</h5><div class="who">Фото террасы клиента</div><div class="cnt">2</div></div>
+          <div class="col"><div class="st"><i>7</i>Оффер</div><h5>Визуализация и цена</h5><div class="who">Отправлены за 24 часа</div><div class="cnt">2</div></div>
+          <div class="col"><div class="st"><i>8</i>Фиксация</div><h5>Проект в кабинете</h5><div class="who">Клиент закреплён за партнёром</div><div class="cnt">1–2</div></div>
+          <div class="col win"><div class="st"><i>9</i>Сделка</div><h5>Замер → договор</h5><div class="who">Цикл 4–12 недель</div><div class="cnt">0–1</div></div>
+        </div></div>
+        <div class="crm-meta">
+          <div><b>Где вести</b>Teable: бесплатная таблица с канбан-доской, у Claude есть к ней доступ по API. Если удобнее готовая CRM — бесплатный тариф HubSpot.</div>
+          <div><b>Поля карточки</b>Компания, сегмент, страна и город, сайт, почта, оценка 1–5, первая строка письма, канал (S1, S2, S3, LinkedIn), этап, дата следующего касания, ответственный.</div>
+          <div><b>Служебные статусы</b>«Отказ» и «Стоп-лист» (отписавшиеся — больше не пишем никогда), «Позже» с датой возврата. Не ответившие за 90 дней удаляются.</div>
+        </div>
+      </div>
+      <div style="padding:0 clamp(22px,3vw,38px) clamp(22px,3vw,38px)">
+        <h4 style="font:600 13px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);margin:6px 0 4px">Шаблоны писем (английский, для Хорватии переводим)</h4>
+        <details class="mail"><summary>Письмо 1 · день 0 · «pergola for one of your projects?»</summary><pre>Hi {first_name},
+
+{first_line}
+
+We're D&amp;B Solutions from Vienna — bioclimatic louvered pergolas (WIN CLIMATIC) with our own engineering team, installed in Croatia by our local partner company.
+
+For designers and architects we offer a partner account:
+– your personal partner discount of [X %] — your client sees the price, you see your margin;
+– every project you register is locked to you — if the client contacts us directly, it goes back to you;
+– send us a photo of your client's terrace and within 24 hours you get a visualisation of the pergola on that exact terrace plus a price from our 3D planner.
+
+Do you have a terrace project right now where I could show you how this looks?</pre></details>
+        <details class="mail"><summary>Письмо 2 · день 3–4 · пример «до/после»</summary><pre>Hi {first_name}, a quick example of what I meant: [ссылка: фото террасы → визуализация → цена].
+
+It takes your client 2 minutes to send a photo, and you walk into the next meeting with a visual and a number instead of "I'll get back to you".
+
+Worth a try on one project?</pre></details>
+        <details class="mail"><summary>Письмо 3 · день 8–10 · последнее</summary><pre>Hi {first_name}, I'll stop here so I don't clutter your inbox.
+
+If pergolas come up in a project this season or next, just reply with the client's terrace photo — the visualisation and price are free and the project stays registered to {company}.</pre></details>
+      </div>
+    </article>
+
+    <article class="card" id="s2">
+      <div class="card-top">
+        <div class="card-main">
+          <div class="tag">S2 · HORECA</div>
+          <h3>Рестораны, бары и отели побережья: «вот ваша терраса с перголой»</h3>
+          <p>Рестораны и отели договариваются о террасе на сезон именно зимой. Claude находит в отзывах Google жалобы гостей на жару, дождь, ветер и отсутствие тени. Берёт фото террасы из карточки заведения и ставит на него перголу. Отправляем письмо с картинкой, потом приходит наш представитель с iPad.</p>
+          <p><b>Где:</b> Сплит, Макарска, Задар, Шибеник, Дубровник, Истрия, Опатия, летние террасы Загреба.</p>
+          <p style="background:var(--sand);padding:14px 16px;border-radius:12px;font-size:15px;color:var(--ink2)"><i>«Гости в отзывах пишут, что летом на вашей террасе слишком жарко. Мы показали, как она выглядела бы с биоклиматической перголой. Монтаж до сезона, если договоримся до февраля. Может наш представитель заглянуть на 15 минут?»</i></p>
+        </div>
+        <div class="card-side">
+          <div class="kv"><b>20–60 $</b><span>Apify и визуализации + время представителя</span></div>
+          <div class="kv"><b>Неделя 3</b><span>представитель может прийти уже на следующий день после письма</span></div>
+          <div class="kv"><b>3 из 30</b><span>заведений соглашаются на встречу, 1 просит точный замер</span></div>
+          <span class="est" style="justify-self:start">оценка</span>
+        </div>
+      </div>
+      <div class="split">
+        <div><h4>Делает Claude</h4><ul><li>Сбор заведений и 20–50 отзывов на каждое</li><li>Поиск «боли» в отзывах на 4 языках</li><li>Визуализации для топ-30 заведений</li><li>Расчёт из 3D-планера</li></ul></div>
+        <div><h4>Делает человек</h4><ul><li>Письмо от имени компании</li><li>Визит или звонок представителя в Хорватии</li></ul>
+        <h4 style="margin-top:20px">Риски</h4><ul><li>Для террасы на городской земле может понадобиться разрешение — проверить у партнёра</li><li>Фото из Google — только как внутренний макет для самого заведения, не публикуем</li></ul></div>
+      </div>
+      <div class="crm">
+        <div class="crm-h"><div><h4>Как это работает по шагам</h4>
+        <p>Это не реклама, а личное предложение владельцу заведения: мы заранее показываем ему его же террасу с перголой. Ресторан здесь не партнёр, а прямой клиент. Почта, домен и CRM — те же, что в S1, просто отдельная кампания.</p></div></div>
+        <div class="flow">
+          <div class="fs"><div class="k">1</div><h5>Находим</h5><p>Apify собирает из Google Maps рестораны, бары, beach bar и отели побережья: адрес, сайт, почта, Instagram, фото, отзывы.</p><span class="who c">Claude</span></div>
+          <div class="fs"><div class="k">2</div><h5>Отбираем</h5><p>Claude читает отзывы на 4 языках и ищет жалобы на жару, солнце, дождь и ветер. Оставляем 30 заведений с открытой террасой и хорошим фото.</p><span class="who c">Claude</span></div>
+          <div class="fs"><div class="k">3</div><h5>Визуализируем</h5><p>Фото их террасы + промпт 2 → терраса с перголой и вечерний вариант. Сверху — примерная цена из 3D-планера.</p><span class="who c">Claude</span></div>
+          <div class="fs"><div class="k">4</div><h5>Отправляем</h5><p>Письмо через тот же сервис рассылки, ссылка на картинку их террасы. Если у заведения активный Instagram — то же сообщением в директ: картинка там смотрится естественно.</p><span class="who">Человек</span></div>
+          <div class="fs"><div class="k">5</div><h5>Приходим</h5><p>Через 2–3 дня представитель звонит или заходит с распечаткой и iPad: «вот ваша терраса, 15 минут». Итог — в CRM: встреча, замер, отказ.</p><span class="who">Представитель</span></div>
+        </div>
+        <div class="qa">
+          <div><b>Почему картинка по ссылке, а не вложением</b>Вложения и картинки в первом холодном письме чаще попадают в спам. Ссылка ведёт на страницу с их визуализацией, и видно, кто её открыл.</div>
+          <div><b>Почему это работает зимой</b>Зимой владельцы планируют сезон и бюджет, а монтаж нужно успеть до апреля. Летом им не до того: терраса полная.</div>
+        </div>
+      </div>
+    </article>
+
+    <article class="card" id="s3">
+      <div class="card-top">
+        <div class="card-main">
+          <div class="tag">S3 · УСИЛЕНИЕ КАНАЛОВ</div>
+          <h3>Оффер «визуализация за 24 часа» в LinkedIn и у представителей</h3>
+          <p>Это не новый канал, а одно конкретное действие, которое мы добавляем в уже запущенные. Вместо «интересно, давайте созвонимся» партнёр сразу присылает проект.</p>
+          <p>На встрече представитель делает визуализацию прямо на iPad по фото с телефона клиента. Это производит сильное впечатление.</p>
+        </div>
+        <div class="card-side">
+          <div class="kv"><b>10–30 $</b><span>генерации визуализаций</span></div>
+          <div class="kv"><b>Неделя 2–3</b><span>как только LinkedIn-аккаунты начнут получать ответы</span></div>
+          <div class="kv"><b>≥ 30 %</b><span>положительных ответов доходят до присланного фото</span></div>
+          <span class="est" style="justify-self:start">оценка</span>
+        </div>
+      </div>
+      <div class="split">
+        <div><h4>Делает Claude</h4><ul><li>2–3 варианта перголы на фото (S500 и S400, цвет, с ZIP-стенами и без)</li><li>Одностраничник: визуализация, цена, ссылка на партнёрский кабинет</li><li>До 30 минут на проект</li></ul></div>
+        <div><h4>Делает человек</h4><ul><li>Отправляет и сразу заводит проект в кабинете</li></ul>
+        <h4 style="margin-top:20px">Успех и стоп</h4><ul><li class="ok">Партнёры шлют фото проектов</li><li class="stop">Фото не шлют → пробуем денежный бонус за рекомендацию</li></ul></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- WEEKS -->
+<section id="weeks">
+  <div class="wrap">
+    <div class="io"><div class="eyebrow">План месяца</div>
+    <h2>Неделя за неделей</h2></div>
+    <div class="weeks io">
+      <div class="wk"><h4>1<small>сейчас</small></h4><ul><li>Анализ Instagram конкурентов</li><li>Два LinkedIn-аккаунта, начало прогрева</li><li>Логотип Synergy</li><li>Этот портфель гипотез</li></ul></div>
+      <div class="wk"><h4>2<small>старт</small></h4><ul><li>S3: оффер в LinkedIn и у представителя</li><li>S1: сбор базы, домен, начало прогрева почты</li><li>S2: отбор ресторанов, визуализации</li><li>Ручные письма лучшим компаниям</li></ul></div>
+      <div class="wk"><h4>3<small>первые заявки</small></h4><ul><li>Ответы на ручные письма</li><li>Визиты представителя в рестораны</li><li>B1: Instagram-сообщения дизайнерам</li></ul></div>
+      <div class="wk"><h4>4<small>поток и выводы</small></h4><ul><li>Массовая рассылка после прогрева</li><li>Считаем ответы, решаем, что масштабировать во втором месяце</li></ul></div>
+    </div>
+  </div>
+</section>
+
+<!-- LAW -->
+<section class="law dark" id="law">
+  <div class="wrap">
+    <div class="io"><div class="eyebrow" style="color:var(--brass)">Законы о рассылках</div>
+    <h2>Куда можно писать, <em>а куда нельзя</em></h2>
+    <p class="lead">Холодное письмо компании регулируют два закона: GDPR (персональные данные) и национальный закон о связи (можно ли вообще слать рекламу без согласия).</p></div>
+    <div class="countries io">
+      <div class="cty g"><div class="f">🇭🇷</div><h4>Хорватия</h4><p>Согласие юрлиц не требуется. Нужны понятный отправитель и отписка.</p><span class="s">МОЖНО</span></div>
+      <div class="cty y"><div class="f">🇫🇷</div><h4>Франция</h4><p>Можно, если предложение касается работы получателя: архитектор, дизайнер.</p><span class="s">ПО ПРОФИЛЮ</span></div>
+      <div class="cty y"><div class="f">🇸🇮 🇵🇹</div><h4>Словения, Португалия</h4><p>По обзорам — можно с отпиской. Перед стартом проверить закон.</p><span class="s">ПРОВЕРИТЬ</span></div>
+      <div class="cty rd"><div class="f">🇪🇸</div><h4>Испания</h4><p>Закон защищает и компании. Почтой — только после юриста; туда через LinkedIn и Instagram.</p><span class="s">НЕ ПОЧТОЙ</span></div>
+      <div class="cty rd"><div class="f">🇮🇹</div><h4>Италия</h4><p>Регулятор штрафовал за рассылки компаниям без согласия.</p><span class="s">НЕ ПОЧТОЙ</span></div>
+      <div class="cty rd"><div class="f">🇦🇹 🇩🇪</div><h4>Австрия, Германия</h4><p>Согласие нужно даже от фирм. Здесь LinkedIn, представители, звонки, мероприятия.</p><span class="s">НЕ ПОЧТОЙ</span></div>
+    </div>
+    <div class="gdpr io">
+      <div>Только рабочие адреса с сайта компании, лучше общие: info@, office@</div>
+      <div>В первом письме: кто мы, откуда адрес, ссылка на политику конфиденциальности</div>
+      <div>В каждом письме — простая отписка; отписавшихся больше не трогаем</div>
+      <div>Не ответивших за 90 дней удаляем из базы</div>
+      <div>Один раз оформляем «законный интерес» на 1 страницу</div>
+      <div>Перед новой страной — час консультации с юристом по ЕС</div>
+    </div>
+    <p style="margin-top:22px;font-size:13px;color:rgba(241,238,233,.5)">Это не юридическая консультация. Источники: хорватский ZEK NN 76/2022 ст. 50, австрийский TKG 2021 § 174, немецкий UWG § 7, обзоры правил холодных писем в ЕС.</p>
+  </div>
+</section>
+
+<!-- BACKLOG -->
+<section id="backlog">
+  <div class="wrap">
+    <div class="io"><div class="eyebrow">Карта партнёров</div>
+    <h2>Кому ещё <em>можно писать</em></h2>
+    <p class="lead">Перголу почти всегда покупают внутри чужого проекта: ремонта, нового дома, сезона ресторана. Поэтому партнёр — это любой, кто оказывается рядом с клиентом раньше нас. Нажмите на ветку, чтобы выделить её.</p></div>
+    <div class="mm-box io">
+      <div class="mm-scroll"><svg id="mm" viewBox="0 0 1260 780" role="img" aria-label="Карта потенциальных партнёров: шесть групп и каналы, через которые к ним идти"></svg></div>
+      <div class="mm-legend"><span>Рядом с каждым — канал:</span><span class="tagx">почта</span><span class="tagx">LinkedIn</span><span class="tagx">Instagram</span><span class="tagx">визит</span><span class="tagx">сообщество</span><span><i style="background:var(--brass)"></i>новые идеи, которых нет в гипотезах выше</span></div>
+    </div>
+
+    <div class="io" style="margin-top:80px"><div class="eyebrow">Бэклог · недели 3–6</div>
+    <h2>Что включаем <em>следом</em></h2></div>
+    <div class="backlog io">
+      <div class="bl"><div class="id">B1</div><h4>Instagram-сообщения дизайнерам</h4><p>В Хорватии и Испании студии живут в Instagram. Claude читает последние 9 постов и пишет личное сообщение. Для Испании это замена почте.</p><div class="meta">10–20 $ · 1–2 недели</div></div>
+      <div class="bl"><div class="id">B2</div><h4>Застройщики комплексов вилл</h4><p>Один договор — 6–20 пергол. Ищем новые проекты вилл и предлагаем пакет с визуализацией на их рендере.</p><div class="meta">20–50 $ · 3–6 недель</div></div>
+      <div class="bl"><div class="id">B3</div><h4>Смежные бизнесы</h4><p>Бассейны, уличные кухни, садовая мебель, свет. Тот же клиент в тот же момент — взаимные рекомендации.</p><div class="meta">почти 0 · 3–4 недели</div></div>
+      <div class="bl"><div class="id">B4</div><h4>Агентства аренды вилл</h4><p>Пергола удлиняет сезон и поднимает цену аренды. Claude считает окупаемость для владельца.</p><div class="meta">10–20 $ · 4–6 недель</div></div>
+      <div class="bl"><div class="id">B5</div><h4>Каталоги для архитекторов</h4><p>Чертежи и техлисты на 6 языках в каталогах вроде Archiproducts. Медленный канал, но его цитируют ИИ-ассистенты.</p><div class="meta">0–300 € · 2–4 месяца</div></div>
+    </div>
+
+    <div class="io" style="margin-top:80px"><div class="eyebrow">Что уже в работе</div>
+    <h2>Как ИИ <em>усиливает</em> текущие каналы</h2></div>
+    <div class="imp io">
+      <div><b>LinkedIn</b><p>Оффер с визуализацией вместо «давайте созвонимся». Claude читает профиль и посты человека перед сообщением. Раз в неделю пост «до/после», чтобы профиль выглядел живым.</p></div>
+      <div><b>Instagram</b><p>Витрина для партнёров: на неё ведут письма и сообщения. Визуализации на реальных фото, фото поставщика, рилсы «фото террасы → пергола за 10 секунд».</p></div>
+      <div><b>Представители</b><p>Набор для встречи: одностраничник под партнёра, визуализация на iPad, после встречи — письмо-резюме и регистрация проекта в тот же день.</p></div>
+      <div><b>Сайт, Google и ИИ</b><p>Страницы под сегменты и города («пергола для ресторанов в Сплите»), страница для партнёров с ответами на вопросы, каталоги, карточки Google в Вене и Хорватии. Эффект — через 3–6 месяцев.</p></div>
+      <div><b>Женское сообщество</b><p>Не баннер, а закрытое предложение участницам: бесплатная визуализация их террасы и отдельная ссылка в 3D-планер, чтобы считать заявки.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- B2C -->
+<section class="b2c" id="b2c">
+  <div class="wrap">
+    <div class="io"><div class="eyebrow">Частные клиенты</div>
+    <h2>Реклама на частников: <em>честный расчёт</em></h2></div>
+    <div class="fgrid io">
+      <div class="funnel">
+        <div class="fb" style="width:100%"><span>Цена заявки в Meta</span><b>40–80 €</b></div>
+        <div class="fb" style="width:88%"><span>Заявка → замер</span><b>25–35 %</b></div>
+        <div class="fb" style="width:76%"><span>Замер → договор</span><b>20–30 %</b></div>
+        <div class="fb" style="width:64%"><span>Заявок на 1 продажу</span><b>≈ 13</b></div>
+        <div class="fb" style="width:52%;background:var(--bronze)"><span>Цена клиента</span><b style="color:#fff">800–2 000 €</b></div>
+        <p style="text-align:center;margin:8px 0 0;font-size:14px;color:var(--muted)">Валовая прибыль с перголы за 20 000 € — 6 000–8 000 € <span class="est">оценка</span></p>
+      </div>
+      <div class="verdict">
+        <h3>Окупается, но не сейчас</h3>
+        <ul>
+          <li>Даже при цене клиента 2 000 € пергола окупает рекламу в 3–4 раза.</li>
+          <li>Ноябрь–январь — слабый спрос: люди думают о перголе весной.</li>
+          <li>Для первых 1–2 продаж нужно 1 500–3 000 € бюджета, а сделка длится 4–12 недель.</li>
+          <li><b>Решение:</b> тест в феврале–апреле 2027, 1 500 € на Вену и Нижнюю Австрию, заявки через 3D-планер.</li>
+          <li><b>Сейчас за копейки:</b> догоняющая реклама на тех, кто уже открывал 3D-планер.</li>
+          <li><b>Интересный сегмент:</b> австрийцы и немцы с домами отдыха в Хорватии.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ALL -->
+<section id="all">
+  <div class="wrap">
+    <div class="io"><div class="eyebrow">Все гипотезы</div>
+    <h2>Сводная таблица</h2>
+    <p class="lead">Нажмите на заголовок колонки, чтобы отсортировать.</p></div>
+    <div class="tbl io">
+      <table id="sum">
+        <thead><tr><th>#</th><th>Гипотеза</th><th>Кому</th><th data-num="1">Тест</th><th data-num="1">Первый лид</th><th>Успех</th><th>Стоп</th><th>Когда</th></tr></thead>
+        <tbody>
+          <tr><td>S3</td><td>Оффер «визуализация 24 ч» в LinkedIn и у представителей</td><td>Партнёры</td><td data-v="20">10–30 $</td><td data-v="2.5">нед. 2–3</td><td>≥ 30 % «да» доходят до фото</td><td>никто не шлёт фото</td><td><span class="pill p-start">Старт</span></td></tr>
+          <tr><td>S2</td><td>Рестораны побережья Хорватии + визит представителя</td><td>Рестораны, бары, отели</td><td data-v="40">20–60 $</td><td data-v="3">нед. 3</td><td>3 встречи из 30</td><td>0 из 30</td><td><span class="pill p-start">Старт</span></td></tr>
+          <tr><td>S1</td><td>Google Maps → почта (Хорватия)</td><td>Дизайнеры, архитекторы, ремонт, ландшафт</td><td data-v="170">150–190 $</td><td data-v="3.5">нед. 3–4</td><td>≥ 1 % положительных</td><td>0–1 из 300</td><td><span class="pill p-start">Старт</span></td></tr>
+          <tr><td>B1</td><td>Instagram-сообщения (HR, ES)</td><td>Дизайнеры, архитекторы</td><td data-v="15">10–20 $</td><td data-v="4">1–2 нед. после старта</td><td>2 проекта на 200</td><td>&lt; 2 % ответов</td><td><span class="pill p-back">Бэклог</span></td></tr>
+          <tr><td>B3</td><td>Смежные бизнесы</td><td>Бассейны, сады, кухни</td><td data-v="1">≈ 0</td><td data-v="4.5">3–4 нед.</td><td>3 партнёрства</td><td>0 рекомендаций за месяц</td><td><span class="pill p-back">Бэклог</span></td></tr>
+          <tr><td>B2</td><td>Застройщики вилл</td><td>Небольшие застройщики</td><td data-v="35">20–50 $</td><td data-v="6">3–6 нед.</td><td>2 встречи из 20</td><td>0 из 20</td><td><span class="pill p-back">Бэклог</span></td></tr>
+          <tr><td>B4</td><td>Агентства аренды вилл</td><td>Управляющие</td><td data-v="15">10–20 $</td><td data-v="7">4–6 нед.</td><td>2 агентства в деле</td><td>0 ответов</td><td><span class="pill p-back">Бэклог</span></td></tr>
+          <tr><td>B2C</td><td>Реклама в Meta (весной)</td><td>Частники Вены, дома отдыха в Хорватии</td><td data-v="2200">1 500–3 000 €</td><td data-v="8">4–12 нед.</td><td>клиент ≤ 2 000 €</td><td>&gt; 3 000 € после 1 500 €</td><td><span class="pill p-later">Весна</span></td></tr>
+          <tr><td>B5</td><td>Каталоги для архитекторов</td><td>Архитекторы</td><td data-v="150">0–300 €</td><td data-v="12">2–4 мес.</td><td>заявки из каталогов</td><td>медленный актив</td><td><span class="pill p-later">Позже</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- NEED -->
+<section class="need" id="need">
+  <div class="wrap">
+    <div class="io"><div class="eyebrow" style="color:var(--brass)">До старта недели 2</div>
+    <h2>Что нужно <em>от вас</em></h2>
+    <p class="lead" style="color:rgba(241,238,233,.7)">Отмечайте выполненное нажатием — отметки сохраняются в вашем браузере.</p></div>
+    <ol class="chk io" id="chk">
+      <li data-k="1"><div><b>Скидка или процент партнёру по перголам</b><span>Без цифры письма и сообщения не отправить</span></div></li>
+      <li data-k="2"><div><b>Подтверждение монтажа в Хорватии</b><span>Кто монтирует, сроки, примерная цена, нужны ли разрешения для террас ресторанов</span></div></li>
+      <li data-k="3"><div><b>Согласие на домен и почтовые ящики</b><span>Около 100 $ в месяц; от чьего имени пишем</span></div></li>
+      <li data-k="4"><div><b>Фото пергол из кабинета поставщика</b><span>Для визуализаций и примеров «до/после»</span></div></li>
+      <li data-k="5"><div><b>Список контактов представителя в Хорватии</b><span>Чтобы не писать им повторно холодным письмом</span></div></li>
+    </ol>
+  </div>
+</section>
+
+<footer><div class="wrap">D&amp;B Solutions · портфель гипотез продвижения пергол · ноябрь 2026. Цифры с пометкой «оценка» — ориентиры для теста, а не прогноз.</div></footer>
+
+<script>
+/* reveal */
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.io').forEach(el=>io.observe(el));
+
+/* tabs */
+document.querySelectorAll('.tabs button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  document.querySelectorAll('.card').forEach(c=>c.classList.toggle('on',c.id===b.dataset.c));
+}));
+
+/* bubble chart */
+(function(){
+  const svg=document.getElementById('bubble'),NS='http://www.w3.org/2000/svg';
+  const W=900,H=460,L=80,R=30,T=30,B=60;
+  const C={s:'#3F7D58',b:'#796B53',l:'#A8483B'};
+  const D=[
+    ['S3','Оффер в LinkedIn',2.5,20,'s'],['S2','Рестораны',3,40,'s'],['S1','Google Maps → почта',3.5,170,'s'],
+    ['B1','Instagram',4,15,'b'],['B3','Смежные бизнесы',4.5,3,'b'],['B2','Застройщики вилл',6,35,'b'],['B4','Аренда вилл',7,15,'b'],
+    ['B2C','Реклама на частников',8,2200,'l'],['B5','Каталоги',12,150,'l']];
+  const x=w=>L+(w-1)/(13-1)*(W-L-R);
+  const ymin=Math.log10(2),ymax=Math.log10(4000);
+  const y=v=>H-B-(Math.log10(v)-ymin)/(ymax-ymin)*(H-T-B);
+  const el=(t,a,txt)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;svg.appendChild(e);return e};
+  // quick-win zone
+  el('rect',{x:L,y:y(250),width:x(5)-L,height:H-B-y(250),fill:'#3F7D58',opacity:.07,rx:8});
+  el('text',{x:L+4,y:y(250)-10,fill:'#3F7D58','font-size':13,'font-weight':600},'Зона быстрых и дешёвых тестов');
+  [2,4,6,8,10,12].forEach(w=>{el('line',{x1:x(w),x2:x(w),y1:T,y2:H-B,stroke:'rgba(23,21,18,.08)'});el('text',{x:x(w),y:H-B+22,'text-anchor':'middle','font-size':13,fill:'#6B645B'},w+' нед.')});
+  [[5,'5 $'],[20,'20 $'],[100,'100 $'],[500,'500 $'],[2000,'2 000']].forEach(([v,t])=>{el('line',{x1:L,x2:W-R,y1:y(v),y2:y(v),stroke:'rgba(23,21,18,.08)'});el('text',{x:L-10,y:y(v)+4,'text-anchor':'end','font-size':13,fill:'#6B645B'},t)});
+  el('text',{x:(L+W-R)/2,y:H-12,'text-anchor':'middle','font-size':13,fill:'#2B2A27'},'Через сколько недель первая заявка →');
+  const yl=el('text',{x:18,y:(T+H-B)/2,'text-anchor':'middle','font-size':13,fill:'#2B2A27',transform:`rotate(-90 18 ${(T+H-B)/2})`},'Стоимость теста →');
+  D.forEach(([id,name,w,v,k],i)=>{
+    const g=document.createElementNS(NS,'g');svg.appendChild(g);g.style.cursor='default';
+    const cx=x(w),cy=y(v);
+    const c=document.createElementNS(NS,'circle');Object.entries({cx,cy,r:0,fill:C[k],opacity:.9}).forEach(([a,b])=>c.setAttribute(a,b));g.appendChild(c);
+    const t=document.createElementNS(NS,'text');Object.entries({x:cx,y:cy+4,'text-anchor':'middle','font-size':12,'font-weight':700,fill:'#fff'}).forEach(([a,b])=>t.setAttribute(a,b));t.textContent=id;g.appendChild(t);
+    const lbl=document.createElementNS(NS,'text');Object.entries({x:cx+24,y:cy+4,'font-size':13.5,fill:'#2B2A27'}).forEach(([a,b])=>lbl.setAttribute(a,b));lbl.textContent=name;g.appendChild(lbl);
+    if(cx>W-200||id==='S3'){lbl.setAttribute('x',cx-24);lbl.setAttribute('text-anchor','end')}
+    const tt=document.createElementNS(NS,'title');tt.textContent=`${id} · ${name}: тест ≈ ${v>=1000?v.toLocaleString('ru')+' €':v+' $'}, первая заявка ≈ ${w} нед. (оценка)`;g.appendChild(tt);
+    setTimeout(()=>{let r=0;const grow=()=>{r+=1.5;c.setAttribute('r',Math.min(r,18));if(r<18)requestAnimationFrame(grow)};grow()},300+i*90);
+    g.addEventListener('mouseenter',()=>c.setAttribute('r',22));g.addEventListener('mouseleave',()=>c.setAttribute('r',18));
+  });
+})();
+
+/* sortable table */
+(function(){
+  const t=document.getElementById('sum'),tb=t.tBodies[0];let last=-1,asc=true;
+  t.querySelectorAll('th').forEach((th,i)=>th.addEventListener('click',()=>{
+    asc=last===i?!asc:true;last=i;
+    const rows=[...tb.rows].sort((a,b)=>{
+      const A=a.cells[i],B=b.cells[i];
+      const va=th.dataset.num?+A.dataset.v:A.textContent.trim(),vb=th.dataset.num?+B.dataset.v:B.textContent.trim();
+      return (va>vb?1:va<vb?-1:0)*(asc?1:-1)});
+    rows.forEach(r=>tb.appendChild(r));
+  }));
+})();
+
+/* partner mind map */
+(function(){
+  const svg=document.getElementById('mm');if(!svg)return;const NS='http://www.w3.org/2000/svg';
+  const W=1260,H=780,CX=630,CY=390;
+  const B=[
+    {t:'Проектируют',c:'#796B53',side:-1,l:[['Дизайнеры интерьера','почта'],['Архитекторы','почта'],['Ландшафтные архитекторы','почта'],['Проектные и инженерные бюро','LinkedIn',1],['Хоум-стейджинг','Instagram',1]]},
+    {t:'Строят',c:'#3F7D58',side:-1,l:[['Генподрядчики','почта'],['Ремонтные фирмы','почта'],['Строители бассейнов','почта'],['Монтаж окон и солнцезащиты','LinkedIn',1],['Фасадчики и кровельщики','почта',1]]},
+    {t:'Продают и сдают жильё',c:'#4F6B8A',side:-1,l:[['Застройщики комплексов вилл','визит'],['Агентства аренды вилл','почта'],['Агенты по недвижимости','LinkedIn',1],['Управляющие домами','визит',1]]},
+    {t:'Рестораны и отдых',c:'#A8483B',side:1,l:[['Рестораны и конобы','почта'],['Бары и beach clubs','Instagram'],['Отели и апартаменты','почта'],['Кемпинги и глэмпинги','почта',1],['Винодельни и агротуризм','визит',1]]},
+    {t:'Смежный товар',c:'#B7832F',side:1,l:[['Садовая мебель','почта'],['Уличные кухни и гриль','почта'],['Садовые центры','визит',1],['Освещение и умный дом','LinkedIn',1],['Плитка и террасная доска','почта',1]]},
+    {t:'Сообщества и места',c:'#6B645B',side:1,l:[['Женское бизнес-сообщество','сообщество'],['Бизнес-клубы','визит'],['Палаты архитекторов и выставки','визит',1],['Яхт-клубы и марины','визит',1]]}
+  ];
+  const mk=(t,a,p,txt)=>{const e=document.createElementNS(NS,t);for(const k in a)e.setAttribute(k,a[k]);if(txt!=null)e.textContent=txt;(p||svg).appendChild(e);return e};
+  const groups=[];
+  // center
+  const bandH=(H-60)/3;
+  B.forEach((b,bi)=>{
+    const g=mk('g',{class:'br'});groups.push(g);
+    const idx=bi%3, s=b.side;
+    const by=30+bandH*idx+bandH/2, bx=CX+s*200;
+    mk('path',{d:`M${CX} ${CY} C ${CX+s*110} ${CY}, ${bx-s*90} ${by}, ${bx} ${by}`,fill:'none',stroke:b.c,'stroke-width':3,opacity:.55},g);
+    const n=b.l.length, step=Math.min(36,(bandH-20)/(n-1||1)), y0=by-step*(n-1)/2, lx=CX+s*300;
+    b.l.forEach(([name,ch,isNew],li)=>{
+      const ly=y0+li*step;
+      mk('path',{d:`M${bx} ${by} C ${bx+s*50} ${by}, ${lx-s*55} ${ly}, ${lx-s*10} ${ly}`,fill:'none',stroke:b.c,'stroke-width':1.5,opacity:.45},g);
+      mk('circle',{cx:lx-s*6,cy:ly,r:isNew?5:3.5,fill:isNew?'#C4B496':b.c},g);
+      const tx=mk('text',{x:lx+s*6,y:ly+5,'text-anchor':s>0?'start':'end','font-size':15,fill:'#2B2A27'},g,name);
+      const w=tx.getComputedTextLength?tx.getComputedTextLength():name.length*7.5;
+      const pw=ch.length*6.6+16, px=s>0?lx+s*6+w+8:lx+s*6-w-8-pw;
+      mk('rect',{x:px,y:ly-10,width:pw,height:20,rx:10,fill:'none',stroke:'rgba(23,21,18,.18)'},g);
+      mk('text',{x:px+pw/2,y:ly+4,'text-anchor':'middle','font-size':11.5,fill:'#6B645B'},g,ch);
+    });
+    // branch node on top
+    const label=b.t, bw=label.length*8.4+30;
+    mk('rect',{x:bx-bw/2,y:by-18,width:bw,height:36,rx:18,fill:b.c},g);
+    mk('text',{x:bx,y:by+5,'text-anchor':'middle','font-size':14.5,'font-weight':600,fill:'#fff'},g,label);
+    g.addEventListener('click',()=>{
+      const on=g.dataset.on==='1';
+      groups.forEach(x=>{x.classList.toggle('dim',!on&&x!==g);x.dataset.on=(!on&&x===g)?'1':''});
+    });
+  });
+  mk('circle',{cx:CX,cy:CY,r:74,fill:'#171512'});
+  mk('text',{x:CX,y:CY-6,'text-anchor':'middle','font-size':24,fill:'#C4B496','font-style':'italic','font-family':'Instrument Serif, Georgia, serif'},null,'Перголы');
+  mk('text',{x:CX,y:CY+20,'text-anchor':'middle','font-size':13,fill:'rgba(241,238,233,.75)','letter-spacing':'1.5'},null,'D&B · WIN CLIMATIC');
+})();
+
+/* before / after slider */
+(function(){
+  const ba=document.getElementById('ba');if(!ba)return;
+  ba.querySelector('input').addEventListener('input',e=>ba.style.setProperty('--x',e.target.value+'%'));
+})();
+
+/* copy prompts */
+document.querySelectorAll('.pr button').forEach(b=>b.addEventListener('click',async()=>{
+  const txt=document.getElementById(b.dataset.p).textContent;
+  let ok=false;
+  try{await navigator.clipboard.writeText(txt);ok=true}catch(e){
+    const r=document.createRange();r.selectNodeContents(document.getElementById(b.dataset.p));
+    const s=getSelection();s.removeAllRanges();s.addRange(r);try{ok=document.execCommand('copy')}catch(_){}
+  }
+  b.textContent=ok?'Скопировано':'Выделено — нажмите ⌘C';b.classList.add('done');
+  setTimeout(()=>{b.textContent='Скопировать промпт';b.classList.remove('done')},2200);
+}));
+
+/* checklist (per-viewer convenience) */
+(function(){
+  let st={};try{st=JSON.parse(localStorage.getItem('dbs-need')||'{}')}catch(e){}
+  document.querySelectorAll('#chk li').forEach(li=>{
+    if(st[li.dataset.k])li.classList.add('done');
+    li.addEventListener('click',()=>{li.classList.toggle('done');st[li.dataset.k]=li.classList.contains('done');try{localStorage.setItem('dbs-need',JSON.stringify(st))}catch(e){}});
+  });
+})();
+</script>
+</body>
+</html>
