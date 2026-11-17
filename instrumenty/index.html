@@ -145,6 +145,51 @@ footer{background:var(--ink);color:rgba(241,238,233,.5);font-size:13px;padding-b
 .io{opacity:0;transform:translateY(22px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
 .io.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){.io{opacity:1;transform:none;transition:none}}
+
+/* светлая тема: без чёрных экранов */
+body{background:var(--white)}
+.nav{background:rgba(255,255,255,.92)}
+.hero{background:var(--paper);color:var(--ink)}
+.hero::after{display:none}
+.hero h1 em{color:var(--bronze)}
+.hero .lead{color:var(--muted)}
+.hero .eyebrow{color:var(--bronze)!important}
+.three{background:var(--line);border-color:var(--line)}
+.three div{background:var(--white)}
+.three .n{color:var(--bronze)}
+.three h3{color:var(--ink)}
+.three p{color:var(--muted)}
+.t5 .num{background:var(--sand);color:var(--bronze)}
+.dark{background:var(--paper);color:var(--ink)}
+.dark h2 em{color:var(--bronze)}
+.dark .lead{color:var(--muted)}
+.dark .eyebrow{color:var(--bronze)!important}
+.stats{background:var(--line);border-color:var(--line)}
+.stats div{background:var(--white)}
+.stats b{color:var(--bronze)}
+.stats span{color:var(--muted)}
+.sg{background:var(--white);border-color:var(--line)}
+.sg p{color:var(--muted)}
+.sg a{color:var(--bronze)}
+.sg .sc b{color:var(--bronze)}
+.sg .sc span{color:var(--muted)}
+.note{color:var(--ink2);background:var(--white);border-left-color:var(--bronze)}
+.need{background:var(--paper);color:var(--ink)}
+.need h2 em{color:var(--bronze)}
+.need .eyebrow{color:var(--bronze)!important}
+.chk li{border-color:var(--line);background:var(--white)}
+.chk li::before{border-color:var(--bronze);color:var(--bronze)}
+.chk span{color:var(--muted)}
+footer{background:var(--white);color:var(--muted);border-top:1px solid var(--line)}
+.pg .who b{background:var(--sand);color:var(--bronze)}
+.pg .btn{background:var(--bronze);color:#fff}
+.ph .after::after{background:repeating-linear-gradient(90deg,#796B53 0 7px,#A39577 7px 10px)}
+.ph .after i,.ph .after u{background:#796B53}
+.ph span{background:rgba(121,107,83,.85)}
+#page{background:var(--white)!important}
+#cal{background:var(--white)!important}
+#ideas{background:var(--paper)}
+#ideas .it{background:var(--white)}
 </style>
 </head>
 <body>
