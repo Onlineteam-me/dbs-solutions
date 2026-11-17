@@ -317,9 +317,15 @@ footer{background:var(--ink);color:rgba(241,238,233,.5);font-size:13px;padding-b
 .seo{background:var(--paper)}
 .sx-h{margin-top:72px}
 .sx-langs{display:grid;gap:6px;margin-top:32px}
-.sx-row{display:grid;grid-template-columns:150px 1fr 46px;gap:14px;align-items:center;padding:8px 0;border-bottom:1px solid var(--line);cursor:pointer}
-.sx-row .l b{font:600 15px/1.2 var(--sans);text-transform:uppercase}
-.sx-row .l span{display:block;font-size:12.5px;color:var(--muted)}
+.sx-row{display:grid;grid-template-columns:minmax(260px,380px) 1fr 46px;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.sx-row .nm{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.sx-row .fl{font-size:24px;line-height:1}
+.sx-row .nm b{font:600 16px/1.2 var(--sans)}
+.sx-row .t{font-style:normal;font-size:11.5px;font-weight:600;letter-spacing:.04em;padding:3px 9px;border-radius:999px;background:var(--sand);color:var(--muted)}
+.sx-row .t.b{background:rgba(121,107,83,.16);color:var(--bronze)}
+.sx-row .t.p{background:rgba(63,125,88,.14);color:var(--green)}
+.sx-row .t.w{background:rgba(183,131,47,.14);color:var(--amber)}
+.sx-row .ct{display:block;font-size:13px;color:var(--muted);margin-top:5px;padding-left:34px}
 .sx-bar{height:12px;border-radius:6px;background:var(--sand);position:relative;overflow:hidden}
 .sx-bar i{position:absolute;inset:0 auto 0 0;border-radius:6px;background:#B9AE9C;transition:width 1s cubic-bezier(.2,.7,.2,1)}
 .sx-row.pick .sx-bar i{background:var(--green)}
@@ -333,7 +339,7 @@ footer{background:var(--ink);color:rgba(241,238,233,.5);font-size:13px;padding-b
 .sx-rec .codes span{font:600 15px/1 var(--sans);padding:10px 14px;border-radius:12px;background:rgba(255,255,255,.08);color:var(--brass)}
 .sx-rec .codes span:first-child{background:var(--brass);color:var(--ink)}
 .sx-rec p{margin:0;font-size:15px;color:rgba(241,238,233,.78)}
-@media(max-width:760px){.sx-rec{grid-template-columns:1fr}.sx-row{grid-template-columns:96px 1fr 40px}}
+@media(max-width:760px){.sx-rec{grid-template-columns:1fr}.sx-row{grid-template-columns:1fr 40px}.sx-row .l{grid-column:1/3}.sx-row .vd{grid-column:1/3}.sx-row .ct{padding-left:0}}
 .sx-sites{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
 .sx-site{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:10px}
 .sx-site h4{font:500 18px/1.2 var(--sans);margin:0}
@@ -373,27 +379,32 @@ footer{background:var(--ink);color:rgba(241,238,233,.5);font-size:13px;padding-b
 .sx-use li.risk{border-color:rgba(214,165,70,.5)}
 .sx-use li.risk::before{content:"!";background:#F2CB7E}
 @media(max-width:900px){.sx-sun-top{grid-template-columns:1fr}.sx-sun-top>div+div{border-left:0;border-top:1px solid var(--lined)}.sx-use ol{grid-template-columns:1fr}.sx-stats{grid-template-columns:1fr 1fr}}
-.sx-flow{display:grid;grid-template-columns:220px 1fr;gap:18px;margin-top:32px;align-items:start}
-.sx-src{display:grid;gap:8px;position:sticky;top:80px}
-.sx-src div{padding:12px 14px;border-radius:12px;background:var(--sand);font-size:14px;color:var(--ink2);position:relative}
-.sx-src div::after{content:"→";position:absolute;right:-16px;top:50%;transform:translateY(-50%);color:var(--bronze);font-size:16px}
-.sx-src .t{background:transparent;padding:0 0 4px;font:600 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--bronze)}
-.sx-src .t::after{display:none}
-.sx-pages{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.sx-pg{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:16px;cursor:pointer;display:flex;flex-direction:column;gap:6px;transition:border-color .2s,box-shadow .2s}
-.sx-pg:hover{border-color:var(--bronze)}
-.sx-pg code{font:500 12.5px/1 ui-monospace,Menlo,monospace;color:var(--bronze)}
-.sx-pg h5{margin:0;font:500 15.5px/1.25 var(--sans)}
-.sx-pg p{margin:0;font-size:13.5px;color:var(--muted)}
-.sx-pg .cta{margin-top:auto;font-size:12.5px;color:var(--ink2);padding-top:8px;border-top:1px dashed var(--line)}
-.sx-pg .cta::before{content:"Кнопка: ";color:var(--muted)}
-.sx-pg .more{display:none;font-size:13px;color:var(--ink2)}
-.sx-pg .more ul{margin:6px 0 0;padding-left:16px}
-.sx-pg .more b{display:block;margin-top:8px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--bronze)}
-.sx-pg.open{grid-column:span 3;box-shadow:0 10px 30px rgba(23,21,18,.08)}
-.sx-pg.open .more{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-@media(max-width:1000px){.sx-flow{grid-template-columns:1fr}.sx-src{position:static;grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}.sx-src div::after{display:none}.sx-pages{grid-template-columns:1fr 1fr}.sx-pg.open{grid-column:span 2}}
-@media(max-width:560px){.sx-pages{grid-template-columns:1fr}.sx-pg.open{grid-column:span 1}.sx-pg.open .more{grid-template-columns:1fr}}
+.sx-src{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:28px}
+.sx-src .lbl{font-size:14px;color:var(--muted);margin-right:4px}
+.sx-src button{font:500 14px/1 var(--sans);padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--white);cursor:pointer;color:var(--ink)}
+.sx-src button.on{background:var(--ink);color:#F1EEE9;border-color:var(--ink)}
+.sx-map{display:grid;grid-template-columns:330px 1fr;gap:18px;margin-top:16px;align-items:start}
+.sx-tree{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.sx-tree .root{font:500 14px/1 ui-monospace,Menlo,monospace;color:var(--ink2);padding-bottom:12px;border-bottom:1px solid var(--line)}
+.sx-tree .grp{margin-top:14px;padding-left:14px;border-left:2px solid var(--sand)}
+.sx-tree .g{font:600 13px/1.2 var(--sans);color:var(--bronze);margin-bottom:6px}
+.sx-tree button{display:flex;flex-direction:column;align-items:flex-start;gap:3px;width:100%;text-align:left;font:500 15px/1.25 var(--sans);padding:9px 12px;margin:2px 0;border:0;border-radius:10px;background:transparent;color:var(--ink);cursor:pointer;transition:background .2s,opacity .25s}
+.sx-tree button code{font:400 11.5px/1 ui-monospace,Menlo,monospace;color:var(--muted)}
+.sx-tree button:hover{background:var(--paper)}
+.sx-tree button.on{background:var(--ink);color:#F1EEE9}
+.sx-tree button.on code{color:var(--brass2)}
+.sx-tree button.dim{opacity:.28}
+.sx-detail{background:var(--white);border:1px solid var(--line);border-radius:var(--r);padding:clamp(20px,3vw,32px);position:sticky;top:80px;min-height:420px}
+.sx-detail code{font:500 13px/1 ui-monospace,Menlo,monospace;color:var(--bronze)}
+.sx-detail .ru{font:600 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:14px}
+.sx-detail h4{font:400 clamp(26px,3vw,36px)/1.1 var(--serif);margin:8px 0 12px}
+.sx-detail .goal{color:var(--ink2);margin:0 0 18px}
+.sx-detail .cols{display:grid;grid-template-columns:1.3fr 1fr;gap:24px;border-top:1px solid var(--line);padding-top:18px}
+.sx-detail b{display:block;font:600 12px/1 var(--sans);letter-spacing:.12em;text-transform:uppercase;color:var(--bronze);margin:0 0 10px}
+.sx-detail ol,.sx-detail ul{margin:0 0 16px;padding-left:20px;font-size:14.5px;color:var(--ink2)}
+.sx-detail li{margin-bottom:6px}
+.sx-detail .btn{display:inline-block;background:var(--bronze);color:#fff;padding:10px 16px;border-radius:999px;font-size:14px}
+@media(max-width:900px){.sx-map{grid-template-columns:1fr}.sx-detail{position:static}.sx-detail .cols{grid-template-columns:1fr}}
 .sx-filters{display:flex;gap:8px;flex-wrap:wrap;margin-top:28px}
 .sx-filters button{font:500 14px/1 var(--sans);padding:10px 16px;border-radius:999px;border:1px solid var(--line);background:transparent;cursor:pointer;color:var(--ink)}
 .sx-filters button.on{background:var(--ink);color:#F1EEE9;border-color:var(--ink)}
@@ -706,7 +717,7 @@ If pergolas come up in a project this season or next, just reply with the client
     <h2>Английский <em>плюс три языка</em></h2>
     <p class="lead">18 языков и рынков оценили по семи критериям: размер спроса, конкуренция в выдаче, длина сезона, рост, средний чек и доля HoReCa, есть ли партнёры-установщики, свободна ли B2B-ниша. Нажмите на строку, чтобы увидеть вывод и баллы.</p></div>
     <div class="sx-langs io" id="sxLangs"></div>
-    <div class="sx-rec io"><div class="codes"><span>EN</span><span>ES</span><span>DE</span><span>HR</span></div>
+    <div class="sx-rec io"><div class="codes"><span>🇬🇧 Английский</span><span>🇪🇸 Испанский</span><span>🇩🇪 Немецкий</span><span>🇭🇷 Хорватский</span></div>
       <p>Каждый язык запускаем в две ступени: сначала 6–8 страниц для партнёров-установщиков, потом цены и гайды — когда в стране есть монтажник. Хорватских страниц немного, но они выходят раньше всех и поддерживают письма и визиты к ресторанам. Польский, словенский и чешский не делаем: там дилеры Sun Winner, конфликт каналов.</p></div>
 
     <div class="io sx-h"><div class="eyebrow">Как устроены сайты в нише</div>
@@ -718,10 +729,11 @@ If pergolas come up in a project this season or next, just reply with the client
 
     <div class="io sx-h"><div class="eyebrow">Сегмент №1 — партнёры и HoReCa</div>
     <h2>Страницы, которые <em>закрывают сделку</em></h2>
-    <p class="lead">Эти страницы не столько приводят трафик, сколько дожимают тех, кто уже пришёл из письма, LinkedIn, от представителя или из ответа ИИ. Нажмите на карточку, чтобы увидеть блоки страницы и откуда на неё приходят.</p></div>
-    <div class="sx-flow io">
-      <div class="sx-src"><div class="t">Откуда приходят</div><div>Холодное письмо (S1)</div><div>Визит к ресторану (S2)</div><div>LinkedIn и оффер (S3)</div><div>Встреча представителя</div><div>Ответ ChatGPT / Google ИИ</div><div>Статьи блога</div></div>
-      <div class="sx-pages" id="sxPages"></div>
+    <p class="lead">Эти страницы не столько приводят трафик, сколько дожимают тех, кто уже пришёл: из письма, LinkedIn, от представителя или из ответа ИИ. Слева — карта будущего сайта, справа — что на выбранной странице. Сверху можно выбрать, откуда пришёл человек, и увидеть, на какие страницы он попадает.</p></div>
+    <div class="sx-src io" id="sxSrc"><span class="lbl">Откуда пришёл человек:</span></div>
+    <div class="sx-map io">
+      <div class="sx-tree" id="sxTree"><div class="root">🌐 новый сайт · /en/</div></div>
+      <div class="sx-detail" id="sxDetail"></div>
     </div>
 
     <div class="io sx-h"><div class="eyebrow">Контент-план</div>
@@ -738,12 +750,18 @@ If pergolas come up in a project this season or next, just reply with the client
   const esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'})[c]);
   const crit={size:'спрос',competition:'конкуренция',season:'сезон',growth:'рост',ticket_horeca:'чек и HoReCa',partners:'партнёры',b2b_niche:'B2B-ниша'};
   // languages
+  const CN={GB:'Великобритания',IE:'Ирландия','EU-B2B':'B2B по всей Европе',ES:'Испания',DE:'Германия',AT:'Австрия',CH:'Швейцария',HR:'Хорватия',ME:'Черногория',BA:'Босния и Герцеговина',PT:'Португалия',GR:'Греция',CY:'Кипр',MT:'Мальта',AE:'ОАЭ',IT:'Италия',NL:'Нидерланды',BE:'Бельгия',FR:'Франция',LU:'Люксембург',RO:'Румыния',SE:'Швеция',DK:'Дания',NO:'Норвегия',FI:'Финляндия',HU:'Венгрия',TR:'Турция',CZ:'Чехия',SK:'Словакия',SI:'Словения',PL:'Польша'};
+  const LN={en:'Английский',es:'Испанский',de:'Немецкий',hr:'Хорватский',pt:'Португальский',el:'Греческий',it:'Итальянский',nl:'Нидерландский',fr:'Французский',ro:'Румынский','sv/da/no/fi':'Скандинавские и финский',hu:'Венгерский',tr:'Турецкий',cs:'Чешский и словацкий',sl:'Словенский',pl:'Польский'};
+  const flag=c=>c==='EU-B2B'?'🇪🇺':c.length===2?String.fromCodePoint(...[...c].map(x=>127397+x.charCodeAt(0))):'';
   const L=document.getElementById('sxLangs');
-  [...D.markets].sort((a,b)=>b.score-a.score).forEach(m=>{
+  const ord=m=>m.order==null?99:m.order;
+  [...D.markets].sort((a,b)=>ord(a)-ord(b)||b.score-a.score).forEach(m=>{
     const r=document.createElement('div');
     r.className='sx-row'+(m.order===0?' base':m.order>=1&&m.order<=3?' pick':'');
-    const tag=m.order===0?'основной':m.order>=1&&m.order<=3?m.order+'-й язык':m.order===4?'вторая волна':'';
-    r.innerHTML=`<div class="l"><b>${esc(m.lang)}</b><span>${esc(m.countries.join(', '))}${tag?' · '+tag:''}</span></div><div class="sx-bar"><i style="width:0"></i></div><div class="sc">${m.score}</div>
+    const tag=m.order===0?'основной язык':m.order>=1&&m.order<=3?'добавляем '+m.order+'-м':m.order===4?'вторая волна':'не сейчас';
+    const name=(LN[m.lang]||m.lang)+(m.lang==='en'&&m.order!==0?' — для '+m.countries.map(c=>CN[c]||c).join(' и '):'');
+    r.innerHTML=`<div class="l"><div class="nm"><span class="fl">${flag(m.countries[0])}</span><b>${esc(name)}</b><em class="t${m.order===0?' b':m.order>=1&&m.order<=3?' p':m.order===4?' w':''}">${tag}</em></div>
+      <span class="ct">${m.countries.map(c=>flag(c)+' '+esc(CN[c]||c)).join(' · ')}</span></div><div class="sx-bar"><i style="width:0"></i></div><div class="sc">${m.score}</div>
       <div class="vd">${esc(m.verdict)}<small>${Object.entries(m.criteria||{}).map(([k,v])=>(crit[k]||k)+' '+v+'/5').join(' · ')}</small></div>`;
     r.addEventListener('click',()=>r.classList.toggle('open'));
     L.appendChild(r);
@@ -768,17 +786,44 @@ If pergolas come up in a project this season or next, just reply with the client
       <div class="sx-stats"><div><b>${sw.pages_total}</b><span>страниц на сайте</span></div><div><b>4</b><span>языка: PL, EN, DE, FR</span></div><div><b>0</b><span>локатора дилеров и страницы «стать дилером»</span></div><div><b>7</b><span>статей блога на английском</span></div></div></div>
     <div><div class="k">Чего у них нет</div><ul class="sx-gaps">${sun.gaps.slice(0,7).map(g=>`<li>${esc(g)}</li>`).join('')}</ul></div></div>
     <div class="sx-use"><div class="k">Как это использовать</div><ol>${use.map(u=>`<li><span>${esc(u)}</span></li>`).join('')}${risk.map(u=>`<li class="risk"><span>${esc(u)}</span></li>`).join('')}</ol></div>`;
-  // commercial pages
-  const P=document.getElementById('sxPages');
-  D.pages.forEach(p=>{
-    const c=document.createElement('div');c.className='sx-pg';
-    c.innerHTML=`<code>${esc(p.slug)}</code><h5>${esc(p.title)}</h5><p>${esc(p.goal)}</p>
-      <div class="more"><div><b>Блоки страницы</b><ul>${p.blocks.map(x=>`<li>${esc(x)}</li>`).join('')}</ul></div>
-      <div><b>Откуда приходят</b><ul>${p.traffic_from.map(x=>`<li>${esc(x)}</li>`).join('')}</ul><b>Гипотезы</b>${esc(p.hypothesis)}</div></div>
-      <div class="cta">${esc(p.cta)}</div>`;
-    c.addEventListener('click',()=>{const o=c.classList.contains('open');P.querySelectorAll('.sx-pg').forEach(x=>x.classList.remove('open'));if(!o)c.classList.add('open')});
-    P.appendChild(c);
+  // commercial pages: site map + detail pane
+  const RU={'/partners/':'Партнёрская программа','/partners/register-project/':'Регистрация проекта','/architects/':'Для архитекторов и дизайнеров','/developers/':'Для девелоперов вилл','/downloads/':'Документы и чертежи','/hospitality/':'Для ресторанов и отелей','/visualisation/':'Визуализация за 24 часа','/win-climatic/':'Перголы WIN CLIMATIC','/pricing/':'Конфигуратор и цены','/projects/':'Проекты и кейсы','/engineering/':'Инжиниринг и гарантия','/about/':'О компании'};
+  const GROUPS=[['🤝 Для партнёров',['/partners/','/partners/register-project/','/architects/','/developers/','/downloads/']],['🍽 Для ресторанов и отелей',['/hospitality/','/visualisation/']],['🏛 Продукт и доверие',['/win-climatic/','/pricing/','/projects/','/engineering/','/about/']]];
+  const SRC=[['mail','✉️ Холодное письмо',/письм|S1/],['horeca','🍽 Письмо ресторану',/S2|ресторан/],['li','💼 LinkedIn',/LinkedIn|H1|S3/],['rep','🧑‍💼 Представитель',/представител/],['ai','🤖 ChatGPT и Google',/ИИ|поиск/],['blog','📝 Статьи блога',/стат/]];
+  const human=t=>String(t).replace(/холодное письмо S1/g,'холодное письмо').replace(/письмо S2/g,'письмо ресторану').replace(/LinkedIn-аутрич H1/g,'LinkedIn').replace(/письмах S1\/S3/g,'письмах и сообщениях LinkedIn').replace(/писем S1\/S2/g,'писем').replace(/письма S1/g,'холодные письма')
+    .replace(/S1/g,'холодные письма').replace(/S2/g,'письма ресторанам').replace(/S3/g,'оффер с визуализацией').replace(/H1/g,'LinkedIn').replace(/S1–S3/g,'все каналы');
+  const bySlug=Object.fromEntries(D.pages.map(p=>[p.slug,p]));
+  const T=document.getElementById('sxTree'),DT=document.getElementById('sxDetail'),SR=document.getElementById('sxSrc');
+  let cur=null,src=null;
+  const show=slug=>{
+    const p=bySlug[slug];cur=slug;
+    T.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.s===slug));
+    DT.innerHTML=`<code>${esc(p.slug)}</code><div class="ru">${esc(RU[p.slug]||'')}</div><h4>${esc(p.title)}</h4><p class="goal">${esc(human(p.goal))}</p>
+      <div class="cols"><div><b>Что на странице</b><ol>${p.blocks.map(x=>`<li>${esc(human(x))}</li>`).join('')}</ol></div>
+      <div><b>Откуда сюда приходят</b><ul>${p.traffic_from.map(x=>`<li>${esc(human(x))}</li>`).join('')}</ul><b>Главная кнопка</b><div class="btn">${esc(p.cta)}</div></div></div>`;
+  };
+  GROUPS.forEach(([g,slugs])=>{
+    const box=document.createElement('div');box.className='grp';box.innerHTML=`<div class="g">${g}</div>`;
+    slugs.filter(s=>bySlug[s]).forEach(s=>{
+      const b=document.createElement('button');b.dataset.s=s;b.dataset.src=SRC.filter(([,,re])=>re.test(bySlug[s].traffic_from.join(' '))).map(x=>x[0]).join(' ');
+      b.innerHTML=`<span>${esc(RU[s]||s)}</span><code>${esc(s)}</code>`;
+      b.addEventListener('click',()=>{show(s);if(innerWidth<900)DT.scrollIntoView({behavior:'smooth',block:'start'})});
+      box.appendChild(b);
+    });
+    T.appendChild(box);
   });
+  SRC.forEach(([k,label])=>{
+    const c=document.createElement('button');c.textContent=label;c.dataset.k=k;
+    c.addEventListener('click',()=>{
+      src=src===k?null:k;
+      SR.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x.dataset.k===src));
+      let first=null;
+      T.querySelectorAll('button').forEach(b=>{const hit=!src||b.dataset.src.split(' ').includes(src);b.classList.toggle('dim',!hit);if(hit&&!first)first=b.dataset.s});
+      if(src&&first&&T.querySelector(`button[data-s="${cur}"]`).classList.contains('dim'))show(first);
+    });
+    SR.appendChild(c);
+  });
+  show('/partners/');
   // articles
   const A=document.getElementById('sxArt'),cnt=document.getElementById('sxCnt');
   const grp=s=>{s=s.toLowerCase();return{b2b:/партн|архит|дизайн|девелоп/.test(s),horeca:/horeca/.test(s),villa:/вилл|b2c/.test(s)}};
